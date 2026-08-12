@@ -1,9 +1,34 @@
-<!-- OPENWIKI:START -->
+# AGENTS
 
-## OpenWiki
+## Repository
 
-This repository uses OpenWiki as its checked-in knowledge and agent-routing surface. Start with `openwiki/quickstart.md`, then follow its links to architecture/runtime, operations, template adoption, and knowledge maintenance.
+This repository publishes ACG Box engineering standards as small Codex plugins.
+Start with [OpenWiki quickstart](openwiki/quickstart.md). Read the owning plugin
+skill and its direct references before you change runtime guidance.
 
-Maintain it generator-first: update the source or configuration that owns the claim, run `openwiki code --update --print`, and review the generated diff against source authority. Direct page edits are reserved for explicit curation or correction. No recurring OpenWiki automation is authorized.
+## Authority
 
-<!-- OPENWIKI:END -->
+- `plugins/` contains installable runtime guidance.
+- `.agents/plugins/marketplace.json` contains the marketplace entry.
+- `VERSION` and each plugin manifest must use the same release version.
+- `openwiki/` contains repository context and maintainer operations. It does not
+  replace plugin runtime authority.
+- Add `dev/` only when a real test, benchmark, evaluation, fixture, or maintainer
+  reference needs an owner.
+- Do not add `apps/` or `packages/` until this repository owns an application or
+  reusable software package.
+
+## Work
+
+- Keep the primary worktree on `main`. Use `.worktrees/<task>` for changes.
+- Use the plugin and skill creation workflows for manifests, marketplace entries,
+  skills, and `agents/openai.yaml`.
+- Keep one canonical standard. Link to it instead of copying its rules into
+  OpenWiki or the README.
+- Run `makers check`, the Plugin Creator validator, and the Skill Creator
+  validator before a ready claim.
+- For durable workflow or layout changes, update source authority first. Then run
+  `openwiki code --update --print` and review all proposed OpenWiki and `AGENTS.md`
+  changes. Curate directly when generation cannot preserve the repository's small
+  ownership model.
+- Do not install, publish, push, or release unless the user requests it.

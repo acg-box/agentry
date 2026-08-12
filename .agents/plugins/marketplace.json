@@ -1,0 +1,20 @@
+{
+  "name": "acg-box",
+  "interface": {
+    "displayName": "ACG Box"
+  },
+  "plugins": [
+    {
+      "name": "quality-gates",
+      "source": {
+        "source": "local",
+        "path": "./plugins/quality-gates"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    }
+  ]
+}

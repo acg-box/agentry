@@ -29,6 +29,10 @@ existing tasks and workflows, preserves distinct risk evidence, and chooses betw
 simple aggregation and affected-owner selection. The reference standard owns the
 rules; do not copy those rules into OpenWiki.
 
+This plugin shares the repository's install and validation boundary with [GitHub
+Repository Governance](github-repo-governance.md), but the two skills own independent
+standards and invocation surfaces.
+
 ```mermaid
 flowchart TD
     marketplace["marketplace entry"] --> plugin["plugin manifest"]

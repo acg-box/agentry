@@ -10,7 +10,7 @@ openwiki:
   symbols: [quality-gates, design, check-fast, check, verify]
   test_paths: [Makefile.toml]
   invariants: [The marketplace source path resolves to the plugin directory and the plugin manifest points to the skills directory.]
-  validation_commands: [makers check]
+  validation_commands: [cargo make check]
 ---
 
 # Quality Gate Architecture
@@ -28,6 +28,10 @@ credential, network client, or writable state. The skill's `design` procedure au
 existing tasks and workflows, preserves distinct risk evidence, and chooses between
 simple aggregation and affected-owner selection. The reference standard owns the
 rules; do not copy those rules into OpenWiki.
+
+This plugin shares the repository's install and validation boundary with [GitHub
+Repository Governance](github-repo-governance.md), but the two skills own independent
+standards and invocation surfaces.
 
 ```mermaid
 flowchart TD
@@ -67,7 +71,8 @@ complete integration or release evidence. It retains independent platform, safet
 atomicity, rollback, migration, artifact, security, and runtime-boundary contracts;
 it does not authorize deployment or publication.
 
-The current repository deliberately uses a simpler implementation: `makers check`
+The current repository deliberately uses a simpler implementation:
+`cargo make check`
 parses both JSON manifests and runs TOML formatting checks. It has one small owner,
 so it does not need a changed-scope selector or a separate `verify` task. This is an
 application of the standard's single-owner rule, not a missing feature.
@@ -77,7 +82,7 @@ application of the standard's single-owner rule, not a missing feature.
 Consult this page when changing plugin metadata, prompts, skill structure, or the
 quality-gate standard. Run the Plugin Creator validator for manifest and component
 paths, and the Skill Creator validator for skill metadata and structure. Run
-`makers check` after any repository or manifest change. A consumer-facing smoke test
+`cargo make check` after any repository or manifest change. A consumer-facing smoke test
 is the validator invocation from [Install And Validation](operations.md), followed by
 starting a fresh Codex task and invoking `$quality-gates:design` when installation
 behavior itself changed.

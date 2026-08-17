@@ -1,0 +1,42 @@
+{
+  "name": "github-repo-governance",
+  "version": "0.1.0",
+  "description": "Audit GitHub repository settings, preview exact drift, and reconcile only explicitly approved repository changes.",
+  "author": {
+    "name": "ACG Box",
+    "url": "https://github.com/acg-box"
+  },
+  "homepage": "https://github.com/acg-box/exp",
+  "repository": "https://github.com/acg-box/exp",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "github",
+    "repository-governance",
+    "settings",
+    "drift",
+    "rulesets",
+    "security"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "GitHub Repository Governance",
+    "shortDescription": "Audit settings and reconcile only approved drift.",
+    "longDescription": "Audit GitHub Enterprise, organization, and repository controls without changing them. Build an exact repository-bound drift preview, preserve parent authority and paid-product boundaries, then reconcile and read back only changes that the user explicitly approved.",
+    "developerName": "ACG Box",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/acg-box/exp",
+    "privacyPolicyURL": "https://github.com/acg-box/exp/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/acg-box/exp/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Audit this repository's GitHub settings and show an exact drift preview.",
+      "Reconcile only the GitHub repository settings that I explicitly approve.",
+      "Audit repository rulesets and security settings without weakening parent controls."
+    ],
+    "brandColor": "#24292F"
+  }
+}

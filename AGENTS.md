@@ -25,7 +25,7 @@ skill and its direct references before you change runtime guidance.
   skills, and `agents/openai.yaml`.
 - Keep one canonical standard. Link to it instead of copying its rules into
   OpenWiki or the README.
-- Run `makers check`, the Plugin Creator validator, and the Skill Creator
+- Run `cargo make check`, the Plugin Creator validator, and the Skill Creator
   validator before a ready claim.
 - For durable workflow or layout changes, update source authority first. Then run
   `openwiki code --update --print` and review all proposed OpenWiki and `AGENTS.md`

@@ -10,7 +10,7 @@ openwiki:
   symbols: [github-repo-governance, audit-and-reconcile, exact drift preview]
   test_paths: [Makefile.toml]
   invariants: [Audits are read-only by default and repository reconciliation cannot mutate or weaken organization or enterprise authority.]
-  validation_commands: [makers check]
+  validation_commands: [cargo make check]
 ---
 
 # GitHub Repository Governance
@@ -65,7 +65,8 @@ of treating a checked-in endpoint example as permanent authority.
 
 ## Validation
 
-Run the Plugin Creator validator, the Skill Creator validator, and `makers check`.
+Run the Plugin Creator validator, the Skill Creator validator, and
+`cargo make check`.
 Review the physical runtime file set: only the manifest, skill, invocation metadata,
 and canonical reference belong in the plugin. Run Plugin Eval when available.
 

@@ -9,8 +9,8 @@ openwiki:
   source_paths: [Makefile.toml, .taplo.toml, .github/workflows/check.yml, VERSION, PRIVACY.md]
   symbols: [check, check-json, fmt-check, Check]
   test_paths: [Makefile.toml, .github/workflows/check.yml]
-  invariants: [The Check workflow runs the same makers check command as local validation.]
-  validation_commands: [makers check]
+  invariants: [The Check workflow runs the same cargo make check command as local validation.]
+  validation_commands: [cargo make check]
 ---
 
 # Install And Validation
@@ -34,7 +34,7 @@ to verify that Codex loaded a newly installed version.
 Install `cargo-make` and Taplo, then run the canonical quiet repository check:
 
 ```sh
-makers check
+cargo make check
 ```
 
 `Makefile.toml` composes `check-json` and `fmt-check`. `check-json` parses
@@ -46,7 +46,7 @@ work.
 Apply TOML formatting only when needed:
 
 ```sh
-makers fmt
+cargo make fmt
 ```
 
 ## Plugin Boundary Checks
@@ -77,7 +77,7 @@ the current tree.
 The `Check` workflow in `.github/workflows/check.yml` runs on pull requests targeting
 `main`, pushes to `main`, and merge queues. It grants `contents: read`, uses one
 Ubuntu job with a five-minute timeout, installs pinned `cargo-make` and Taplo, and
-runs `makers check`. Pull-request runs may be canceled when superseded; `main` runs
+runs `cargo make check`. Pull-request runs may be canceled when superseded; `main` runs
 are not canceled.
 
 `VERSION` is `0.1.0`. Change it and the plugin manifest together only for an explicit
@@ -92,8 +92,8 @@ manifests point consumers to that policy.
 
 | Change | Narrow check | Escalate when |
 | --- | --- | --- |
-| TOML task or formatting configuration | `makers check` | task names or workflow behavior changes |
-| Plugin metadata or path | Plugin Creator validator plus `makers check` | marketplace or consumer installation changes |
+| TOML task or formatting configuration | `cargo make check` | task names or workflow behavior changes |
+| Plugin metadata or path | Plugin Creator validator plus `cargo make check` | marketplace or consumer installation changes |
 | Skill front matter or invocation metadata | Skill Creator validator | a namespaced skill resolution changes |
 | Standard guidance | Skill Creator validator | release version, public prompt, or install surface changes |
-| CI workflow | `makers check` | permissions, triggers, action pins, or release behavior changes |
+| CI workflow | `cargo make check` | permissions, triggers, action pins, or release behavior changes |

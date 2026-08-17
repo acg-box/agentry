@@ -10,7 +10,7 @@ openwiki:
   symbols: [github-repo-governance, audit-and-reconcile, quality-gates, design]
   test_paths: [.github/workflows/check.yml, Makefile.toml]
   invariants: [The plugin manifest, marketplace entry, and repository VERSION must describe the same installable release.]
-  validation_commands: [makers check]
+  validation_commands: [cargo make check]
 ---
 
 # Repository Quickstart
@@ -47,9 +47,9 @@ context belongs under `openwiki/`.
 | Change GitHub governance guidance | [GitHub Repository Governance](github-repo-governance.md) | `plugins/github-repo-governance/skills/audit-and-reconcile/SKILL.md`, `references/standard.md` | `audit-and-reconcile`, exact drift preview | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/github-repo-governance/skills/audit-and-reconcile` |
 | Change quality-gate guidance | [Quality Gate Architecture](quality-gates.md) | `plugins/quality-gates/skills/design/SKILL.md`, `references/standard.md` | `design`, `check-fast`, `check`, `verify` | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/quality-gates/skills/design` |
 | Change plugin metadata or installability | [Install And Validation](operations.md) | `plugins/*/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `VERSION` | `github-repo-governance`, `quality-gates`, `acg-box`, `0.1.0` | Plugin Creator `validate_plugin.py` | Run the validator for each changed plugin |
-| Change repository checks or formatting | [Install And Validation](operations.md) | `Makefile.toml`, `.taplo.toml` | `check`, `check-json`, `fmt-check` | `makers check` | `makers check` |
-| Change CI triggers or release boundaries | [Install And Validation](operations.md) | `.github/workflows/check.yml`, `PRIVACY.md` | `Check`, `contents: read` | GitHub `Check` workflow | `makers check` |
-| Update repository navigation | this page and linked concepts | `README.md`, `AGENTS.md`, `openwiki/` | repository ownership statements | Markdown link review | `makers check` |
+| Change repository checks or formatting | [Install And Validation](operations.md) | `Makefile.toml`, `.taplo.toml` | `check`, `check-json`, `fmt-check` | `cargo make check` | `cargo make check` |
+| Change CI triggers or release boundaries | [Install And Validation](operations.md) | `.github/workflows/check.yml`, `PRIVACY.md` | `Check`, `contents: read` | GitHub `Check` workflow | `cargo make check` |
+| Update repository navigation | this page and linked concepts | `README.md`, `AGENTS.md`, `openwiki/` | repository ownership statements | Markdown link review | `cargo make check` |
 
 The validator paths above are relative to `${CODEX_HOME:-$HOME/.codex}/skills/.system`
 and require an isolated environment with PyYAML; see [Operations](operations.md).

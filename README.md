@@ -71,7 +71,7 @@ and validation contract exist.
 Install `cargo-make` and Taplo, then run:
 
 ```sh
-makers check
+cargo make check
 ```
 
 See [OpenWiki operations](openwiki/operations.md) for plugin and skill validation.

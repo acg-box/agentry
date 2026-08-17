@@ -1,4 +1,0 @@
-interface:
-  display_name: "Audit and Reconcile GitHub Settings"
-  short_description: "Audit repository settings and reconcile approved drift"
-  default_prompt: "Use $github-repo-governance:audit-and-reconcile to audit this repository against my approved GitHub settings profile."

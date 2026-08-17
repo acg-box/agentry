@@ -1,6 +1,6 @@
 # Privacy
 
-The `github-repo-governance` and `quality-gates` plugins contain instructions only.
+The `gh-settings` and `quality-gates` plugins contain instructions only.
 They have no executable code, hook, app, MCP server, network client, credential, or
 writable runtime state. The plugins do not collect, transmit, or store user data.
 

@@ -1,5 +1,5 @@
 {
-  "name": "github-repo-governance",
+  "name": "gh-settings",
   "version": "0.1.0",
   "description": "Audit GitHub repository settings, preview exact drift, and reconcile only explicitly approved repository changes.",
   "author": {
@@ -19,7 +19,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "GitHub Repository Governance",
+    "displayName": "GitHub Settings",
     "shortDescription": "Audit settings and reconcile only approved drift.",
     "longDescription": "Audit GitHub Enterprise, organization, and repository controls without changing them. Build an exact repository-bound drift preview, preserve parent authority and paid-product boundaries, then reconcile and read back only changes that the user explicitly approved.",
     "developerName": "ACG Box",

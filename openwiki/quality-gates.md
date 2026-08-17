@@ -30,7 +30,7 @@ simple aggregation and affected-owner selection. The reference standard owns the
 rules; do not copy those rules into OpenWiki.
 
 This plugin shares the repository's install and validation boundary with [GitHub
-Repository Governance](github-repo-governance.md), but the two skills own independent
+Settings](gh-settings.md), but the two skills own independent
 standards and invocation surfaces.
 
 ```mermaid

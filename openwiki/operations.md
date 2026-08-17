@@ -2,7 +2,7 @@
 type: Operations Guide
 title: Install And Validation
 description: Installation, repository checks, plugin validation, CI behavior, and release boundaries for repository plugins.
-tags: [operations, validation, plugins, github-governance, quality-gates, release]
+tags: [operations, validation, plugins, github-settings, quality-gates, release]
 openwiki:
   roles: [operations, testing, delivery]
   change_kinds: [validation, public-api, release]
@@ -21,7 +21,7 @@ Add the Git marketplace and install the optional plugin:
 
 ```sh
 codex plugin marketplace add acg-box/exp --ref main
-codex plugin add github-repo-governance@acg-box
+codex plugin add gh-settings@acg-box
 codex plugin add quality-gates@acg-box
 ```
 
@@ -57,9 +57,9 @@ add a Python project solely to host the dependency:
 
 ```sh
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" \
-  plugins/github-repo-governance
+  plugins/gh-settings
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
-  plugins/github-repo-governance/skills/audit-and-reconcile
+  plugins/gh-settings/skills/sync
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" \
   plugins/quality-gates
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \

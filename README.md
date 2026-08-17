@@ -11,16 +11,16 @@ Small, reusable ACG Box engineering standards.
 
 ## Available Plugins
 
-### GitHub Repository Governance
+### GitHub Settings
 
-`github-repo-governance` audits GitHub Enterprise, organization, and repository
+`gh-settings` audits GitHub Enterprise, organization, and repository
 settings without changing them by default. It binds one repository, separates
 parent controls from repository-owned drift, and shows the exact planned fields or
 Web UI controls before an authorized reconciliation. It also prevents implicit paid
 security-product enablement and reads every changed setting back.
 
-Read the [canonical governance standard](plugins/github-repo-governance/skills/audit-and-reconcile/references/standard.md)
-or invoke `$github-repo-governance:audit-and-reconcile` after installation.
+Read the [canonical GitHub settings standard](plugins/gh-settings/skills/sync/references/standard.md)
+or invoke `$gh-settings:sync` after installation.
 
 ### Quality Gates
 
@@ -44,7 +44,7 @@ Add this Git marketplace, then install the optional plugin:
 
 ```sh
 codex plugin marketplace add acg-box/exp --ref main
-codex plugin add github-repo-governance@acg-box
+codex plugin add gh-settings@acg-box
 codex plugin add quality-gates@acg-box
 ```
 
@@ -57,7 +57,7 @@ repository [privacy policy](PRIVACY.md).
 
 | Path | Owner |
 | --- | --- |
-| `plugins/github-repo-governance/` | Installable GitHub governance runtime |
+| `plugins/gh-settings/` | Installable GitHub settings runtime |
 | `plugins/quality-gates/` | Installable plugin runtime |
 | `openwiki/` | Repository context and maintainer operations |
 | `.agents/plugins/marketplace.json` | Marketplace discovery |

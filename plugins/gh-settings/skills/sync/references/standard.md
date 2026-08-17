@@ -1,4 +1,4 @@
-# GitHub Repository Governance Standard
+# GitHub Settings Standard
 
 ## Purpose
 
@@ -107,16 +107,47 @@ Read repository visibility first. Then inspect:
 - the repository `security_and_analysis` block when the identity can see it;
 - dependency graph and Dependabot alert state;
 - Dependabot security update state, including a paused result;
+- grouped security updates;
+- Dependabot malware alerts and their supported npm-only scope;
+- Dependabot delegated alert dismissal (`Prevent direct alert dismissals`);
+- Dependabot on Actions runners and the effective runner type/label;
 - code scanning default setup and its language availability;
 - secret scanning and push protection;
 - the code security configuration attached to the repository, including its source
   and enforcement; and
 - Code Quality setup only to confirm that it is not unintentionally selected.
 
-For a public repository on GitHub.com, enable the requested free public baseline only
-when current documentation confirms availability: dependency graph, Dependabot
-alerts and security updates, CodeQL or default code scanning for supported languages,
-secret scanning, and push protection.
+### Free Dependabot Repository Baseline
+
+When the requested profile selects the repository free baseline and current official
+documentation confirms availability, audit these repository-owned controls together:
+
+- dependency graph, Dependabot alerts, and Dependabot security updates;
+- grouped security updates, which require the three preceding prerequisites and may
+  reorganize existing Dependabot pull requests;
+- Dependabot malware alerts, enabled only after Dependabot alerts and currently
+  limited to the npm ecosystem; and
+- `Prevent direct alert dismissals`, when the repository exposes the control without
+  requiring a paid or otherwise unapproved prerequisite. When available, it makes
+  users with repository write access submit dismissal requests while organization
+  owners and security managers can approve or deny requests or dismiss alerts
+  directly. Confirm that reviewers have enough coverage before enabling this
+  workflow.
+
+For Dependabot on Actions runners, select the standard GitHub-hosted runner by
+default. Inspect repository and organization runner inventory and labels before
+considering self-hosted execution. Do not select self-hosted mode unless an eligible,
+available runner with the exact configured label exists; otherwise keep standard
+GitHub runners so Dependabot jobs do not queue indefinitely.
+
+Grouped updates, malware alerts, and standard Dependabot runners are separate from
+Code Security, Secret Protection, and Code Quality. Delegated Dependabot dismissal
+may require Code Security to be enabled for the repository in the current GitHub
+UI. If the control reports that prerequisite, classify it as `paid opt-in required`
+or `unsupported` under the active profile and leave it disabled; never enable Code
+Security, Secret Protection, or Code Quality just to satisfy delegated dismissal.
+The free baseline does not authorize any paid product or any organization or
+enterprise mutation.
 
 For a private or internal repository, enable only controls that current plan evidence
 shows do not activate a paid add-on. Do not enable `advanced_security`, Code Security,
@@ -130,9 +161,14 @@ own product, setup surface, license, and usage costs. Enable it only under separ
 explicit product and billing authority.
 
 Treat an attached or enforced organization or enterprise security configuration as
-parent authority. Report its effective values. Do not edit, detach, replace, or
-weaken it during repository-only work. If it prevents a requested repository value,
-report the drift as parent-controlled rather than trying a broader mutation.
+parent authority. The repository's code-security-configuration readback is the
+authoritative attachment check: only an attached or enforced configuration supplies
+effective parent values for this repository. A configuration that merely exists in
+the organization catalog, or is listed without an attachment to this repository,
+is informational and must not be reported as effective state. Report attached
+configuration values, and do not edit, detach, replace, or weaken them during
+repository-only work. If an attached configuration prevents a requested repository
+value, report the drift as parent-controlled rather than trying a broader mutation.
 
 ## Exact Drift Preview
 
@@ -144,6 +180,10 @@ Show the preview before the first write. Bind it to:
 - current parent rulesets and security configuration;
 - current documentation or API version; and
 - every requested profile clause.
+
+For the free Dependabot baseline, include one row for each of grouped security
+updates, malware alerts, Prevent direct alert dismissals, and runner mode, plus
+their dependency prerequisites and any attached configuration that can control them.
 
 Use one row per control with these columns:
 
@@ -183,7 +223,11 @@ Apply the smallest sufficient mutations:
 Order changes to preserve access and evidence. Apply non-destructive feature and
 merge settings before destructive ruleset deletion. Enable a prerequisite before a
 dependent free security feature. Do not disable a parent-enforced or pre-existing
-security feature merely because it is absent from the requested profile.
+security feature merely because it is absent from the requested profile. For the
+free Dependabot baseline, verify dependency graph, alerts, and security updates
+before grouped updates or malware alerts, and verify the effective alert-dismissal
+reviewers before enabling delegated dismissal. Keep standard GitHub runners when no
+matching self-hosted runner is available.
 
 ## Readback And Result
 
@@ -196,6 +240,8 @@ Report:
 
 - bound target, identity, visibility, and observation time;
 - parent rulesets and security configuration left unchanged;
+- whether any organization or enterprise configuration is attached/enforced for
+  the repository, and which values are therefore effective;
 - before, desired, and read-back values for each control;
 - exact operations attempted and their outcomes;
 - conditional skips, paid-product gates, inaccessible controls, and unsupported
@@ -214,6 +260,14 @@ Check the current versions of these GitHub sources before live work:
 - REST repository rules: `https://docs.github.com/en/rest/repos/rules`
 - REST code security configurations:
   `https://docs.github.com/en/rest/code-security/configurations`
+- Dependabot security updates and grouping:
+  `https://docs.github.com/en/enterprise-cloud@latest/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates`
+- Dependabot malware alerts:
+  `https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-malware-alerts`
+- Dependabot delegated alert dismissal:
+  `https://docs.github.com/en/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal`
+- Dependabot GitHub-hosted runners:
+  `https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-github-hosted-runners`
 - REST code scanning: `https://docs.github.com/en/rest/code-scanning/code-scanning`
 - GraphQL repository schema:
   `https://docs.github.com/en/graphql/reference/repos`

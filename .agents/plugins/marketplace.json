@@ -17,10 +17,10 @@
       "category": "Development"
     },
     {
-      "name": "github-repo-governance",
+      "name": "gh-settings",
       "source": {
         "source": "local",
-        "path": "./plugins/github-repo-governance"
+        "path": "./plugins/gh-settings"
       },
       "policy": {
         "installation": "AVAILABLE",

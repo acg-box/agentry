@@ -26,7 +26,10 @@ classification, exact drift preview, public and private security baselines, muta
 authority, paid-product and automatic dependency submission billing gates, ruleset
 migration or retirement safety, UI fallback, and authoritative readback. It
 distinguishes an attached or enforced parent configuration from an unattached
-catalog entry. Do not copy these rules into OpenWiki.
+catalog entry. Automatic dependency submission is a separate GitHub Actions workload,
+not a Dependabot runner setting: supported manifests, Actions availability, runner
+choice, and billing must be checked independently. Do not copy these rules into
+OpenWiki.
 
 ```mermaid
 flowchart TD
@@ -54,6 +57,12 @@ The merge-commit-only baseline keeps the three repository merge toggles as resid
 state and uses a parent pull-request rule where GitHub supports central allowed-method
 enforcement. The standard requires a complete conflict check for linear-history
 rules before activation.
+
+For security baselines, automatic dependency submission gets its own preview and
+readback row. Enable it only after dependency graph, GitHub Actions, supported
+ecosystem, runner, and billing evidence is bound; prefer free Dependabot graph jobs
+where they take precedence. Private or internal repositories require explicit
+acceptance of Actions usage and possible billing.
 
 A local ruleset in a zero-local profile is either migrated with equivalent parent
 readback or explicitly retired after the user accepts the protection delta. The

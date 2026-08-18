@@ -23,10 +23,10 @@ executable, hook, app, MCP server, credential, network client, or writable state
 
 The canonical standard owns operating-mode selection, target binding, central-first
 classification, exact drift preview, public and private security baselines, mutation
-authority, billing gates, ruleset migration or retirement safety, UI fallback, and
-authoritative readback. It distinguishes an attached or enforced parent
-configuration from an unattached catalog entry. Do not copy these rules into
-OpenWiki.
+authority, paid-product and automatic dependency submission billing gates, ruleset
+migration or retirement safety, UI fallback, and authoritative readback. It
+distinguishes an attached or enforced parent configuration from an unattached
+catalog entry. Do not copy these rules into OpenWiki.
 
 ```mermaid
 flowchart TD

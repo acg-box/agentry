@@ -1,15 +1,15 @@
 ---
 type: Architecture Reference
 title: GitHub Settings
-description: Runtime ownership, safety boundaries, public surfaces, and validation for the instruction-only GitHub settings plugin.
+description: Runtime ownership, central-first and repository-scoped modes, safety boundaries, public surfaces, and validation for the instruction-only GitHub settings plugin.
 tags: [architecture, plugins, github, settings, security]
 openwiki:
   roles: [architecture, repository, workflow, security]
   change_kinds: [public-api, validation, documentation]
   source_paths: [plugins/gh-settings/.codex-plugin/plugin.json, plugins/gh-settings/skills/sync/SKILL.md, plugins/gh-settings/skills/sync/references/standard.md, plugins/gh-settings/skills/sync/agents/openai.yaml, .agents/plugins/marketplace.json]
-  symbols: [gh-settings, sync, exact drift preview, free Dependabot baseline]
+  symbols: [gh-settings, sync, central-first authority, repository-scoped mode, merge-commit-only baseline, zero repository-owned rulesets, exact drift preview, free security baselines]
   test_paths: [Makefile.toml]
-  invariants: [Audits are read-only by default, repository reconciliation cannot mutate or weaken organization or enterprise authority, and only attached or enforced parent configurations determine effective repository state.]
+  invariants: [Audits are read-only by default, organization-wide mode places each control at the highest sufficient GitHub scope, repository-scoped mode keeps parent state read-only, selected zero-local-ruleset profiles require a count of zero on every repository, and only attached or enforced parent configurations determine effective state.]
   validation_commands: [cargo make check]
 ---
 
@@ -17,47 +17,59 @@ openwiki:
 
 ## Runtime Boundary
 
-`plugins/gh-settings/` is the complete installed runtime. It contains one
-`sync` skill, invocation metadata, and one canonical GitHub settings
-standard. It has no executable, hook, app, MCP server, credential, network client,
-or writable state.
+`plugins/gh-settings/` is the complete installed runtime. It contains one `sync`
+skill, invocation metadata, and one canonical GitHub governance standard. It has no
+executable, hook, app, MCP server, credential, network client, or writable state.
 
-The canonical standard owns target binding, parent-scope classification, the exact
-drift preview, free Dependabot repository baseline, mutation authority,
-private-repository billing gates, ruleset safety, UI fallback, and authoritative
-readback. It distinguishes an attached or enforced parent configuration from an
-unattached organization catalog entry, and it keeps delegated alert dismissal
-behind its current repository prerequisites and paid-product gates. Do not copy
-these rules into OpenWiki.
+The canonical standard owns operating-mode selection, target binding, central-first
+classification, exact drift preview, public and private security baselines, mutation
+authority, billing gates, ruleset migration or retirement safety, UI fallback, and
+authoritative readback. It distinguishes an attached or enforced parent
+configuration from an unattached catalog entry. Do not copy these rules into
+OpenWiki.
 
 ```mermaid
 flowchart TD
     marketplace["marketplace entry"] --> plugin["plugin manifest"]
     plugin --> skill["sync skill"]
-    skill --> standard["canonical GitHub settings standard"]
+    skill --> standard["canonical GitHub governance standard"]
     standard --> currentDocs["current official GitHub docs"]
-    standard --> target["target repository and parent evidence"]
+    standard --> target["Enterprise, organization, and repository evidence"]
 ```
 
-## Ownership And Trigger
+## Ownership And Modes
 
-The plugin owns GitHub settings audit and explicitly authorized reconciliation. It
-is independent from [Quality Gate Architecture](quality-gates.md), which owns
-repository validation architecture; both are discovered and validated through the
-shared repository operations boundary. The public invocation is
-`$gh-settings:sync`.
+The plugin owns GitHub governance audit and explicitly authorized reconciliation.
+Organization-wide mode is central-first: it selects Enterprise enforcement,
+organization enforcement, a central default, or a true repository residual in that
+order. When the selected profile requires zero repository-owned rulesets, a nonzero
+count on any repository fails acceptance.
 
-Repository state is not source authority for organization or enterprise state. The
-skill audits parent rulesets and security configurations read-only and uses
-repository-level equivalents only when current GitHub behavior supports them.
+Repository-scoped mode binds one exact repository. It audits parent rulesets,
+defaults, policies, and security configurations but keeps all parent state
+read-only. A request for one repository never authorizes organization or Enterprise
+mutation.
+
+The merge-commit-only baseline keeps the three repository merge toggles as residual
+state and uses a parent pull-request rule where GitHub supports central allowed-method
+enforcement. The standard requires a complete conflict check for linear-history
+rules before activation.
+
+A local ruleset in a zero-local profile is either migrated with equivalent parent
+readback or explicitly retired after the user accepts the protection delta. The
+workflow does not invent a team, role, app, or preservation adapter for semantics
+that the approved profile says to remove.
+
+The plugin is independent from [Quality Gate Architecture](quality-gates.md), which
+owns repository validation architecture. Both use the shared repository operations
+boundary. The public invocation is `$gh-settings:sync`.
 
 ## Public-Surface Change Recipe
 
-A behavior change starts in `skills/sync/SKILL.md` or its canonical
-standard. Keep these surfaces synchronized:
+A behavior change starts in `skills/sync/SKILL.md` or the canonical standard. Keep
+these surfaces synchronized:
 
-- `.agents/plugins/marketplace.json` owns discovery at
-  `./plugins/gh-settings`.
+- `.agents/plugins/marketplace.json` owns discovery at `./plugins/gh-settings`.
 - `.codex-plugin/plugin.json` owns plugin metadata and the `./skills/` entrypoint.
 - `agents/openai.yaml` owns the invocation label and default prompt.
 - `VERSION` and every plugin manifest use the same repository release version.
@@ -70,10 +82,10 @@ of treating a checked-in endpoint example as permanent authority.
 ## Validation
 
 Run the Plugin Creator validator, the Skill Creator validator, and
-`cargo make check`.
-Review the physical runtime file set: only the manifest, skill, invocation metadata,
-and canonical reference belong in the plugin. Run Plugin Eval when available.
+`cargo make check`. Review the physical runtime file set: only the manifest, skill,
+invocation metadata, and canonical reference belong in the plugin. Run Plugin Eval
+when available.
 
-When installation is in scope, install after repository checks and verify pickup in a
-fresh Codex task. Installation does not prove that the task that performed the
+When installation is in scope, install after repository checks and verify pickup in
+a fresh Codex task. Installation does not prove that the task that performed the
 install loaded the new runtime.

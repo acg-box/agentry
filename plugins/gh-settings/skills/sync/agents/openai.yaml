@@ -1,4 +1,4 @@
 interface:
-  display_name: "Sync GitHub Settings"
-  short_description: "Audit settings and reconcile approved drift"
-  default_prompt: "Use $gh-settings:sync to audit this repository against my approved GitHub settings profile."
+  display_name: "Sync GitHub Governance"
+  short_description: "Centralize governance and reconcile drift"
+  default_prompt: "Use $gh-settings:sync to audit organization-wide GitHub governance, centralize supported controls, and reconcile only approved repository residuals."

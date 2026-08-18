@@ -80,7 +80,7 @@ Ubuntu job with a five-minute timeout, installs pinned `cargo-make` and Taplo, a
 runs `cargo make check`. Pull-request runs may be canceled when superseded; `main` runs
 are not canceled.
 
-`VERSION` is `0.1.0`. Change it and the plugin manifest together only for an explicit
+`VERSION` is `0.1.0`. Change it and every plugin manifest together only for an explicit
 release. This repository has no publication workflow. Full verification or plugin
 installation does not authorize publishing, deploying, or changing CI policy.
 

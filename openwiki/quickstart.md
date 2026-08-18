@@ -20,8 +20,10 @@ openwiki:
 `acg-box/exp` publishes small ACG Box engineering standards as Codex plugins. Both
 current plugins are instruction-only:
 
-- `gh-settings` audits GitHub settings, previews exact drift, and
-  reconciles only explicitly approved repository changes. Its canonical standard is
+- `gh-settings` audits GitHub governance, puts enforceable controls at the highest
+  supported scope in organization-wide mode, keeps parent state read-only in
+  repository-scoped mode, previews exact drift, and reconciles only explicitly
+  approved changes. Its canonical standard is
   [`plugins/gh-settings/skills/sync/references/standard.md`](../plugins/gh-settings/skills/sync/references/standard.md).
 - `quality-gates` designs lean, risk-based repository validation. Its canonical
   standard is
@@ -44,7 +46,7 @@ context belongs under `openwiki/`.
 
 | Change area or user intent | Relevant wiki page | Exact source entry points | Important symbols or types | Focused tests | Minimal validation command |
 | --- | --- | --- | --- | --- | --- |
-| Change GitHub settings guidance | [GitHub Settings](gh-settings.md) | `plugins/gh-settings/skills/sync/SKILL.md`, `references/standard.md` | `sync`, exact drift preview, free Dependabot baseline | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/gh-settings/skills/sync` |
+| Change GitHub settings guidance | [GitHub Settings](gh-settings.md) | `plugins/gh-settings/skills/sync/SKILL.md`, `plugins/gh-settings/skills/sync/references/standard.md` | `sync`, central-first authority, exact drift preview, free Dependabot baseline | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/gh-settings/skills/sync` |
 | Change quality-gate guidance | [Quality Gate Architecture](quality-gates.md) | `plugins/quality-gates/skills/design/SKILL.md`, `references/standard.md` | `design`, `check-fast`, `check`, `verify` | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/quality-gates/skills/design` |
 | Change plugin metadata or installability | [Install And Validation](operations.md) | `plugins/*/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `VERSION` | `gh-settings`, `quality-gates`, `acg-box`, `0.1.0` | Plugin Creator `validate_plugin.py` | Run the validator for each changed plugin |
 | Change repository checks or formatting | [Install And Validation](operations.md) | `Makefile.toml`, `.taplo.toml` | `check`, `check-json`, `fmt-check` | `cargo make check` | `cargo make check` |

@@ -1,7 +1,7 @@
 {
   "name": "gh-settings",
   "version": "0.1.0",
-  "description": "Audit GitHub repository settings, preview exact drift, and reconcile only explicitly approved repository changes.",
+  "description": "Centralize GitHub governance, preview exact drift, and reconcile only explicitly approved controls.",
   "author": {
     "name": "ACG Box",
     "url": "https://github.com/acg-box"
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "GitHub Settings",
-    "shortDescription": "Audit settings and reconcile only approved drift.",
-    "longDescription": "Audit GitHub Enterprise, organization, and repository controls without changing them. Build an exact repository-bound drift preview, preserve parent authority and paid-product boundaries, then reconcile and read back only changes that the user explicitly approved.",
+    "shortDescription": "Centralize governance and reconcile approved drift.",
+    "longDescription": "Audit GitHub Enterprise, organization, and repository controls without changing them. Put enforceable controls at the highest supported scope, preserve paid-product boundaries, show exact drift, then reconcile and read back only changes that the user explicitly approved.",
     "developerName": "ACG Box",
     "category": "Development",
     "capabilities": [
@@ -33,9 +33,9 @@
     "privacyPolicyURL": "https://github.com/acg-box/exp/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/acg-box/exp/blob/main/LICENSE",
     "defaultPrompt": [
-      "Audit this repository's GitHub settings and show an exact drift preview.",
-      "Reconcile only the GitHub repository settings that I explicitly approve.",
-      "Audit repository rulesets and security settings without weakening parent controls."
+      "Audit organization-wide GitHub governance, centralize every supported control, and show an exact drift preview.",
+      "Audit one repository without changing its Enterprise or organization parent controls.",
+      "Reconcile a merge-commit-only, zero-repository-ruleset profile without enabling unapproved paid products."
     ],
     "brandColor": "#24292F"
   }

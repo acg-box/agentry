@@ -1,70 +1,97 @@
 ---
 name: sync
-description: Audit and reconcile GitHub Enterprise, organization, and repository Web UI settings with exact drift previews and scope-safe readback. Use when Codex must review GitHub repository features, pull request and merge settings, release immutability, rulesets, security and analysis controls, CodeQL, secret scanning, Dependabot grouped security updates, malware alerts, delegated alert dismissal, runner mode, or parent-enforced governance, or must apply an explicitly approved repository settings profile without changing organization or enterprise authority.
+description: Audit and reconcile GitHub Enterprise, organization, and repository governance with central-first organization-wide authority, safe repository-scoped operation, exact drift previews, paid-product safety, and effective-state readback. Use when Codex must govern account-wide security configurations and defaults, rulesets, repository policies, release immutability, web commit signoff, Projects, Actions, Code Quality access, Dependabot controls, repository features, pull-request and merge settings, or one exact repository profile.
 ---
 
-# Sync GitHub Settings
+# Sync GitHub Governance
 
 Default to a read-only audit. Reconcile only when the user gives explicit mutation
-authority for one exact GitHub target and profile.
+authority for the exact GitHub targets, scopes, and profile.
 
 Read [the governance standard](references/standard.md) completely before an audit,
-preview, or mutation. Treat the target repository's instructions, GitHub plan,
-parent controls, and current official GitHub documentation as higher authority for
-live behavior.
+preview, or mutation. Treat target repository instructions, GitHub plan and billing
+state, parent controls, and current official GitHub documentation as higher
+authority for live behavior.
+
+## Central-First Authority
+
+Select the operating mode from the user's authority.
+
+In organization-wide mode, put each control at the highest GitHub scope that can
+provide the required outcome:
+
+1. Enterprise enforcement;
+2. organization enforcement;
+3. organization or Enterprise default with explicit repository override
+   precedence; or
+4. repository state only when GitHub has no sufficient parent control.
+
+Do not duplicate repository settings when an enforced parent supplies the outcome.
+Do not call a default enforcement. In repository-scoped mode, keep parent state
+read-only and reconcile only the exact repository.
 
 ## Work
 
-1. Bind the GitHub host, authenticated identity, exact `owner/repository`, stable
-   repository ID, visibility, permission, requested profile, and allowed scopes.
-2. Check current official GitHub documentation through the environment's current-docs
-   route. Map every Web UI label to a supported connector, CLI, REST, GraphQL, or UI
-   control. Do not invent an API field for a UI-only setting.
-3. Audit repository state, attached/effective parent state, and any runner
-   prerequisites. Separate repository-owned controls from organization- and
-   enterprise-owned controls. Treat an organization configuration that is not
-   attached or enforced for the repository as informational, not effective state.
-4. Show the exact drift preview from the standard before any write. Include every
-   field, endpoint or UI control, destructive item, paid-product gate, skip, and
-   unknown. A preview is not mutation authority.
-5. If explicit authority already binds this exact target and profile, refresh state
-   and apply only still-current drift. Otherwise stop after the preview.
-6. Read every changed control back from its authoritative interface. Re-audit parent
-   controls and report effective state, partial results, and honest gaps.
+1. Bind the operating mode, GitHub host, authenticated identity, Enterprise,
+   organization, plan, target repository inventory, requested profile, and allowed
+   mutation scopes.
+2. Check current official GitHub documentation through the environment's
+   current-docs route. Map each control to a supported connector, CLI, REST,
+   GraphQL, or UI interface.
+3. Audit Enterprise and organization controls, central defaults, effective
+   repository attachments, parent-inclusive rulesets, repository-owned rulesets,
+   runner prerequisites, and repository residuals.
+4. Classify each control as Enterprise-enforceable, organization-enforceable,
+   central default, repository-only, or paid/unavailable.
+5. Show the standard's exact drift preview before any live write. Include every
+   changed field, endpoint or UI control, paid gate, conditional change, and exact
+   destructive object.
+6. Refresh state. Apply only still-current approved drift. For a `migrate`
+   decision, create and verify the parent replacement before local deletion. For
+   an explicit `retire` decision, verify the accepted parent baseline first.
+7. Read every changed control back from its authoritative interface. Re-audit
+   effective state for every repository after parent changes.
 
 ## Hard Boundaries
 
-- Never mutate an enterprise or organization setting during a repository-scoped
-  reconciliation.
-- Never weaken, detach, bypass, or replace an inherited ruleset or enforced security
-  configuration.
-- Keep Dependabot on the standard GitHub-hosted runner unless an exact available
-  self-hosted runner with the configured label is present. Do not register runners,
-  change runner labels, or select a self-hosted runner that would queue indefinitely.
-- Treat grouped security updates, Dependabot malware alerts, and Prevent direct alert
-  dismissals as repository controls. Verify their prerequisites and exact current
-  state before writing; do not infer them from an unattached organization
-  configuration.
-- If delegated alert dismissal requires Code Security in the current repository UI,
-  leave it disabled and report the exact prerequisite. Do not enable Code Security,
-  Secret Protection, or Code Quality to satisfy it.
-- Never enable a paid GitHub security product for a private or internal repository
-  unless the user explicitly selects that product and accepts its billing scope.
-- Treat GitHub Code Quality as a separate billable product. Do not infer authority
-  to enable it from a request for CodeQL, code scanning, or a security baseline.
+- Never broaden mutation authority from repository to organization or Enterprise,
+  or from organization to Enterprise.
+- Never weaken, detach, bypass, or replace an inherited rule or enforced security
+  configuration without exact authority for that parent object.
+- Never enable Code Security, Secret Protection, Code Quality, or another paid
+  product for a private or internal repository without explicit product and
+  billing authority.
+- Treat Code Quality as separate from CodeQL and Code Security. For a requested
+  `No repositories` policy, do not start scans or accept charges to configure it.
+- Keep Dependabot on the standard GitHub runner unless an exact eligible runner and
+  label exist. Do not create a runner or select one that can queue indefinitely.
+- Preserve `dependabot.yml` and repository-override precedence for organization
+  defaults such as grouped security updates.
+- Diagnose failed security configuration attachments. Allow active advanced CodeQL
+  setup when that is the safe way to preserve working public coverage.
+- For a merge-commit-only profile, require merge commits, disable squash and
+  rebase, and reject any effective `required_linear_history` conflict before
+  activation.
 - List parent-inclusive and repository-only rulesets separately. Delete only exact
-  repository-owned ruleset IDs that appeared in the approved preview.
-- Use protected credential delivery declared by the active environment. Do not
-  print, persist, request, or place credentials in repository files or commands.
-- Prefer supported machine interfaces. Use the GitHub Web UI only for a setting with
-  no sufficient supported machine route, after declared routes are exhausted and
-  browser use is permitted. Do not start a new login without explicit authority.
-- Treat a stale preview, changed target, changed visibility, changed parent control,
-  changed product availability, or uncertain write result as a stop condition.
+  repository-owned IDs in the approved preview and only after effective parent
+  replacement readback.
+- When a zero-local-ruleset profile explicitly retires a repository rule, verify the
+  accepted parent baseline and delete the exact ID. Do not invent a preservation
+  team, role, app, or adapter for semantics the profile says to remove.
+- Do not invent a team or role to replace a user-specific repository bypass. Verify
+  actor eligibility and exact access first; preserve the local rule when the
+  profile retains its semantics and no exact parent actor exists.
+- Use protected credential delivery. Do not print, persist, request, or place
+  credentials in repository files or commands.
+- Prefer supported machine interfaces. Use the GitHub Web UI only for an exact
+  control with no sufficient machine route, through an existing permitted session.
+- Treat stale preview data, changed identity, target, visibility, parent state,
+  product availability, or uncertain write result as a stop condition.
 
 ## Report
 
-Report the bound target and identity, parent authority, exact before/desired/after
-values, operations attempted, readback evidence, skipped paid or unavailable
-controls, and remaining gaps. Do not claim effective compliance from a successful
-request alone.
+Report the bound identity and scopes, central authority decision, exact
+before/desired/after values, parent attachments and effective state, operations,
+paid or unavailable exceptions, ruleset migrations, repository residuals, and
+repository-owned ruleset count for every in-scope repository. Do not claim effective
+compliance from a successful request alone.

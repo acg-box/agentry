@@ -65,6 +65,10 @@ read-only and reconcile only the exact repository.
   `No repositories` policy, do not start scans or accept charges to configure it.
 - Keep Dependabot on the standard GitHub runner unless an exact eligible runner and
   label exist. Do not create a runner or select one that can queue indefinitely.
+- Treat automatic dependency submission as a separate GitHub Actions workload.
+  Check supported ecosystems, Actions availability, runner choice, and billing;
+  do not infer private-repository authority from free public-runner usage or from
+  the Dependabot runner setting.
 - Preserve `dependabot.yml` and repository-override precedence for organization
   defaults such as grouped security updates.
 - Diagnose failed security configuration attachments. Allow active advanced CodeQL

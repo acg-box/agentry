@@ -132,6 +132,11 @@ For a public baseline, audit these fields:
 - private vulnerability reporting; and
 - configuration enforcement and default repository visibility.
 
+For a maximum-free public baseline, enable automatic dependency submission with
+the standard runner after GitHub Actions and current billing evidence are bound.
+Report when the attached configuration is effective but no current supported
+manifest can trigger a submission.
+
 Code Security and Secret Protection are free for public repositories. CodeQL
 default setup cannot attach over active advanced setup unless the configuration
 allows advanced setup. Preserve active advanced setup or use the explicit
@@ -142,9 +147,23 @@ For a free private or internal baseline, enable only features that current plan
 evidence proves are free for that visibility. Dependency graph, Dependabot alerts,
 and Dependabot security updates are available on all plans. Malware alerts require
 Dependabot alerts and currently cover only supported ecosystems. Explicitly
-disable Code Security, Secret Protection, CodeQL, secret scanning, push
-protection, and their paid dependent features. Keep delegated dismissal disabled
-when the current product requires Code Security.
+disable automatic dependency submission unless the user accepts its GitHub Actions
+usage and possible private-repository billing. Also disable Code Security, Secret
+Protection, CodeQL, secret scanning, push protection, and their paid dependent
+features. Keep delegated dismissal disabled when the current product requires Code
+Security.
+
+Treat automatic dependency submission as a separate Actions workload, not as part
+of the Dependabot runner setting. It requires dependency graph and GitHub Actions,
+runs built-in workflows on supported manifests, and consumes Actions minutes.
+Standard GitHub-hosted runners are free for public repositories; private and
+internal repositories can consume included minutes and incur charges beyond the
+allowance. Inspect current manifest ecosystems before enablement. Prefer the
+no-charge Dependabot graph jobs where GitHub supports them because they take
+precedence over automatic submission. Use the standard runner option unless an
+exact eligible labeled runner is already available. Report when enablement has no
+current effect because no supported manifest exists, and still read back the
+configuration field and every attachment.
 
 Treat GitHub Code Quality as a separate product. Audit its Enterprise allowance,
 organization repository access, enforcement, and repository state. Do not infer
@@ -295,6 +314,11 @@ changed fields. For GraphQL, show the mutation, stable node ID, and changed inpu
 For UI, show the exact page and control. For deletion, show the exact object ID,
 source, target, rules, and replacement.
 
+Give automatic dependency submission its own preview row with dependency-graph and
+Actions prerequisites, supported-ecosystem evidence, runner choice, and the public
+or private Actions billing result. Do not hide it inside the dependency-graph or
+Dependabot-runner rows.
+
 The same user request can supply mutation authority when it binds the exact
 accounts, repositories, profile, and scopes. The preview is still mandatory. Stop
 for new authority if the preview adds a target, scope, product, charge, destructive
@@ -372,6 +396,8 @@ Check current official versions of these sources before live work:
 - public and private security-feature availability and billing;
 - Dependabot security updates, grouping precedence, malware alerts, delegated
   dismissal, and runner selection;
+- automatic dependency submission, supported ecosystems, runner selection, and
+  GitHub Actions billing;
 - immutable releases and organization repository defaults;
 - organization commit-comments and web-signoff controls; and
 - Code Quality enablement, enforcement, and billing.

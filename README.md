@@ -13,11 +13,16 @@ Small, reusable ACG Box engineering standards.
 
 ### GitHub Settings
 
-`gh-settings` audits GitHub Enterprise, organization, and repository
-settings without changing them by default. It binds one repository, separates
-parent controls from repository-owned drift, and shows the exact planned fields or
-Web UI controls before an authorized reconciliation. It also prevents implicit paid
-security-product enablement and reads every changed setting back.
+`gh-settings` audits GitHub Enterprise, organization, and repository governance
+without changing it by default. It puts each enforceable control at the highest
+supported scope, separates central defaults from repository residuals, and shows the
+exact planned fields or Web UI controls before an authorized reconciliation. It also
+prevents implicit paid-product enablement and reads every changed setting back.
+Its merge-commit-only baseline keeps merge commits enabled, disables squash and
+rebase, and rejects conflicting linear-history rules.
+Organization-wide mode is central-first and can require zero repository-owned
+rulesets. Repository-scoped mode audits parent state but never widens authority to
+change it.
 
 Read the [canonical GitHub settings standard](plugins/gh-settings/skills/sync/references/standard.md)
 or invoke `$gh-settings:sync` after installation.

@@ -1,13 +1,13 @@
 ---
 type: Operations Guide
 title: Install And Validation
-description: Installation, repository checks, plugin validation, CI behavior, and release boundaries for the repository plugin.
-tags: [operations, validation, plugin, github-settings, release]
+description: Installation, repository checks, plugin validation, CI behavior, and release boundaries for repository plugins.
+tags: [operations, validation, plugins, github-settings, acg-release, macos-release, release]
 openwiki:
   roles: [operations, testing, delivery]
   change_kinds: [validation, public-api, release]
-  source_paths: [Makefile.toml, .taplo.toml, .github/workflows/check.yml, VERSION, PRIVACY.md]
-  symbols: [check, check-json, fmt-check, Check]
+  source_paths: [Makefile.toml, .taplo.toml, .github/workflows/check.yml, .agents/plugins/marketplace.json, plugins/acg-release/.codex-plugin/plugin.json, VERSION, PRIVACY.md]
+  symbols: [check, check-json, fmt-check, Check, acg-release, macos, acg-box]
   test_paths: [Makefile.toml, .github/workflows/check.yml]
   invariants: [The Check workflow runs the same cargo make check command as local validation.]
   validation_commands: [cargo make check]
@@ -17,16 +17,17 @@ openwiki:
 
 ## Install
 
-Add the Git marketplace and install the optional plugin:
+Add the Git marketplace and install the optional plugins:
 
 ```sh
 codex plugin marketplace add acg-box/exp --ref main
 codex plugin add gh-settings@acg-box
+codex plugin add acg-release@acg-box
 ```
 
-The marketplace entry at `.agents/plugins/marketplace.json` resolves the local
-plugin source. Installation is outside ordinary source validation; use a fresh task
-to verify that Codex loaded a newly installed version.
+The marketplace entries at `.agents/plugins/marketplace.json` resolve both
+local plugin sources. Installation is outside ordinary source validation; use a
+fresh task to verify that Codex loaded a newly installed version.
 
 ## Repository Checks
 
@@ -37,10 +38,10 @@ cargo make check
 ```
 
 `Makefile.toml` composes `check-json` and `fmt-check`. `check-json` parses
-`.agents/plugins/marketplace.json` and the `gh-settings` plugin manifest with
-Python's standard library. `fmt-check` checks `.taplo.toml` and `Makefile.toml` with
-Taplo. The check performs no compile, network, container, migration, install,
-deployment, or release work.
+`.agents/plugins/marketplace.json` and both plugin manifests with Python's
+standard library. `fmt-check` checks `.taplo.toml` and `Makefile.toml` with Taplo.
+The check performs no compile, network, container, migration, install, deployment,
+or release work.
 
 Apply TOML formatting only when needed:
 
@@ -59,13 +60,20 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/valid
   plugins/gh-settings
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
   plugins/gh-settings/skills/sync
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" \
+  plugins/acg-release
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
+  plugins/acg-release/skills/macos
 ```
 
-Run the plugin and skill validators when changing metadata or structure.
-Semantic review must also confirm that marketplace name, plugin name, source path,
-skill name, namespace, default prompt, version, privacy URL, and runtime file set
-agree. There are no package-build, generated-artifact, or integration-test layers in
-the current tree.
+Run the applicable plugin and skill validators when changing metadata or structure.
+For `acg-release`, semantic review must also confirm that the marketplace name,
+local source path, plugin name, `macos` skill, `$acg-release:macos` invocation,
+canonical-owner applicability gate, default prompt, version, privacy URL, and
+four-file runtime set agree. For every plugin, review the marketplace entry, plugin
+manifest, skill metadata, canonical reference, and invocation metadata as one
+installable boundary. There are no package-build, generated-artifact, or
+integration-test layers in the current tree.
 
 ## CI And Release
 
@@ -75,13 +83,13 @@ Ubuntu job with a five-minute timeout, installs pinned `cargo-make` and Taplo, a
 runs `cargo make check`. Pull-request runs may be canceled when superseded; `main` runs
 are not canceled.
 
-`VERSION` is `0.1.0`. Change it and the plugin manifest together only for an explicit
+`VERSION` is `0.1.0`. Change it and every plugin manifest together only for an explicit
 release. This repository has no publication workflow. Full verification or plugin
 installation does not authorize publishing, deploying, or changing CI policy.
 
-The plugin's privacy boundary is documented in [`PRIVACY.md`](../PRIVACY.md): it
-contains instructions only and does not collect, transmit, or store user data. The
-manifest points consumers to that policy.
+The plugins' privacy boundary is documented in [`PRIVACY.md`](../PRIVACY.md): they
+contain instructions only and do not collect, transmit, or store user data. Both
+manifests point consumers to that policy.
 
 ## Change-Safety Matrix
 

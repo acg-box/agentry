@@ -20,6 +20,7 @@ script_runner = "@shell"
 script = [
 	"python3 -m json.tool .agents/plugins/marketplace.json >/dev/null",
 	"python3 -m json.tool plugins/gh-settings/.codex-plugin/plugin.json >/dev/null",
+	"python3 -m json.tool plugins/acg-release/.codex-plugin/plugin.json >/dev/null",
 ]
 
 # Format

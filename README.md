@@ -2,14 +2,14 @@
 
 # exp
 
-A reusable ACG Box engineering standard.
+Small, reusable ACG Box engineering standards.
 
 [![License](https://img.shields.io/badge/License-GPLv3%20only-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-experimental-f59e0b.svg)](VERSION)
 
 </div>
 
-## Available Plugin
+## Available Plugins
 
 ### GitHub Settings
 
@@ -27,25 +27,40 @@ change it.
 Read the [canonical GitHub settings standard](plugins/gh-settings/skills/sync/references/standard.md)
 or invoke `$gh-settings:sync` after installation.
 
+### ACG Release
+
+`acg-release` is the organization release-standard owner for repositories whose
+canonical GitHub owner is `acg-box`. Its only current skill audits, migrates,
+normalizes, operates, and verifies Developer ID releases for Sparkle-enabled macOS
+ZIP applications. It stops as not applicable for repositories outside `acg-box/*`
+and does not claim support for DMG, PKG, or non-Sparkle workflows. Future release
+types get separate skills only after they have real evidence and an independent
+owner contract.
+
+Read the [canonical ACG Box macOS release standard](plugins/acg-release/skills/macos/references/standard.md)
+or invoke `$acg-release:macos` after installation.
+
 ## Install
 
-Add this Git marketplace, then install the optional plugin:
+Add this Git marketplace, then install the optional plugins:
 
 ```sh
 codex plugin marketplace add acg-box/exp --ref main
 codex plugin add gh-settings@acg-box
+codex plugin add acg-release@acg-box
 ```
 
-The plugin is instruction-only. It has no hook, app, MCP server, credential,
-network client, or writable runtime state. Installation does not authorize GitHub
-settings changes, repository changes, CI changes, releases, or deployments. See the
-repository [privacy policy](PRIVACY.md).
+Both plugins are instruction-only. They have no hook, app, MCP server,
+credential, network client, or writable runtime state. Installation does not
+authorize GitHub settings changes, repository changes, CI changes, releases, or
+deployments. See the repository [privacy policy](PRIVACY.md).
 
 ## Repository Layout
 
 | Path | Owner |
 | --- | --- |
 | `plugins/gh-settings/` | Installable GitHub settings runtime |
+| `plugins/acg-release/` | Installable ACG Box release-standard runtime; current `macos` skill only |
 | `openwiki/` | Repository context and maintainer operations |
 | `.agents/plugins/marketplace.json` | Marketplace discovery |
 | `Makefile.toml` | Repository-local validation commands |

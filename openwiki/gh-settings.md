@@ -79,8 +79,8 @@ these surfaces synchronized:
 - `.agents/plugins/marketplace.json` owns discovery at `./plugins/gh-settings`.
 - `.codex-plugin/plugin.json` owns plugin metadata and the `./skills/` entrypoint.
 - `agents/openai.yaml` owns the invocation label and default prompt.
-- `VERSION` and the plugin manifest use the same repository release version.
-- `PRIVACY.md` owns the instruction-only privacy boundary.
+- `VERSION` and every plugin manifest use the same repository release version.
+- `PRIVACY.md` owns the shared instruction-only privacy boundary.
 
 GitHub APIs, UI controls, plans, and billing boundaries can change. The runtime
 standard therefore requires current official documentation before live work instead

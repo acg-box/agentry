@@ -2,7 +2,7 @@
 
 ## Repository
 
-This repository publishes the ACG Box GitHub-governance standard as a Codex plugin.
+This repository publishes ACG Box engineering standards as small Codex plugins.
 Start with [OpenWiki quickstart](openwiki/quickstart.md). Read the owning plugin
 skill and its direct references before you change runtime guidance.
 

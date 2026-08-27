@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage ACG Box macOS Releases"
+  short_description: "Audit notarized Sparkle ZIP releases"
+  default_prompt: "Use $acg-release:macos to verify this repository belongs to acg-box and, only if it does, audit its Sparkle macOS ZIP workflow against the Developer ID standard."

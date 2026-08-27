@@ -1,6 +1,0 @@
-interface:
-  display_name: "Design Quality Gates"
-  short_description: "Design lean, risk-based repository gates"
-  default_prompt: "Use $quality-gates:design to simplify this repository's quality gates while preserving critical evidence."
-policy:
-  allow_implicit_invocation: true

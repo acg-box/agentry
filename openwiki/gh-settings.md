@@ -69,9 +69,7 @@ readback or explicitly retired after the user accepts the protection delta. The
 workflow does not invent a team, role, app, or preservation adapter for semantics
 that the approved profile says to remove.
 
-The plugin is independent from [Quality Gate Architecture](quality-gates.md), which
-owns repository validation architecture. Both use the shared repository operations
-boundary. The public invocation is `$gh-settings:sync`.
+The public invocation is `$gh-settings:sync`.
 
 ## Public-Surface Change Recipe
 
@@ -81,8 +79,8 @@ these surfaces synchronized:
 - `.agents/plugins/marketplace.json` owns discovery at `./plugins/gh-settings`.
 - `.codex-plugin/plugin.json` owns plugin metadata and the `./skills/` entrypoint.
 - `agents/openai.yaml` owns the invocation label and default prompt.
-- `VERSION` and every plugin manifest use the same repository release version.
-- `PRIVACY.md` owns the shared instruction-only privacy boundary.
+- `VERSION` and the plugin manifest use the same repository release version.
+- `PRIVACY.md` owns the instruction-only privacy boundary.
 
 GitHub APIs, UI controls, plans, and billing boundaries can change. The runtime
 standard therefore requires current official documentation before live work instead

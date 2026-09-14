@@ -441,8 +441,10 @@ Do not blindly retry create, delete, upload, or publish requests. When a mutatio
 response is missing or uncertain, use bounded authoritative reads to decide whether
 the intended state exists. Continue only when readback proves one unambiguous state.
 If a new draft or public release is temporarily absent from a release listing, use
-its known stable ID and bounded convergence. Failure to converge keeps the release
-private and stops the run.
+its known stable ID and bounded convergence. If readback does not converge, stop
+further mutations and report the unresolved state. After an uncertain publication
+request, do not claim that the release is private or public without authoritative
+readback.
 
 An already public same-tag rerun is read-only and idempotent. Validate its remote
 metadata and downloaded bytes, then exit successfully. Do not apply the new-release

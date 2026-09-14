@@ -328,7 +328,13 @@ object, or value that the request did not bind.
 
 Refresh every previewed value immediately before writing. Recompute drift. A
 changed identity, target, visibility, parent control, product availability,
-destructive object, or uncertain result invalidates the preview.
+destructive object, or uncertain result invalidates the preview. Suspend affected
+writes and use bounded authoritative reads to resolve the state. Refresh target
+and identity bindings and show the corrected preview before resuming. Resume only
+when the state is unambiguous and the remaining drift is covered by existing
+authority. Obtain new authority for any added target, scope, product, charge,
+destructive object, or value. If readback cannot resolve the state within its
+bounds, report the gap and leave further writes to that target suspended.
 
 Apply the smallest sufficient writes. Use this order unless a dependency requires
 a safer sequence:

@@ -87,7 +87,9 @@ the Sparkle appcast signature and checksum.
 The publisher uses a secret-free protected `release` environment and the ephemeral
 workflow token with `contents: write`; other jobs default to `contents: read`.
 Publication is draft-first and non-idempotent. Final acceptance requires public
-metadata and downloaded-byte verification.
+metadata and downloaded-byte verification. For uncertain responses, use
+[bounded GitHub reconciliation](../plugins/acg-release/skills/macos/references/standard.md#bounded-github-reconciliation),
+which owns recovery and reporting of unresolved publication state.
 
 Shared Developer ID and team App Store Connect API-key material uses unambiguous
 organization-secret names. Conformance requires effective target access and no

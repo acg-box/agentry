@@ -69,6 +69,10 @@ readback or explicitly retired after the user accepts the protection delta. The
 workflow does not invent a team, role, app, or preservation adapter for semantics
 that the approved profile says to remove.
 
+For stale previews or uncertain writes, use the canonical
+[reconciliation rules](../plugins/gh-settings/skills/sync/references/standard.md#reconciliation).
+That section owns bounded readback and the conditions for resuming writes.
+
 The public invocation is `$gh-settings:sync`.
 
 ## Public-Surface Change Recipe

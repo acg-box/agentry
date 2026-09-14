@@ -89,8 +89,10 @@ read-only and reconcile only the exact repository.
   credentials in repository files or commands.
 - Prefer supported machine interfaces. Use the GitHub Web UI only for an exact
   control with no sufficient machine route, through an existing permitted session.
-- Treat stale preview data, changed identity, target, visibility, parent state,
-  product availability, or uncertain write result as a stop condition.
+- Suspend writes when the preview is stale or a write result is uncertain. Use
+  the standard's reconciliation rules for bounded authoritative readback, refreshed
+  previews, and resumption within existing authority. Unresolved state blocks
+  further writes to the affected target; it does not establish success.
 
 ## Report
 

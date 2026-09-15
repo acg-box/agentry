@@ -13,29 +13,16 @@ Small, reusable ACG Box engineering standards.
 
 ### GitHub Settings
 
-`gh-settings` audits GitHub Enterprise, organization, and repository governance
-without changing it by default. It puts each enforceable control at the highest
-supported scope, separates central defaults from repository residuals, and shows the
-exact planned fields or Web UI controls before an authorized reconciliation. It also
-prevents implicit paid-product enablement and reads every changed setting back.
-Its merge-commit-only baseline keeps merge commits enabled, disables squash and
-rebase, and rejects conflicting linear-history rules.
-Organization-wide mode is central-first and can require zero repository-owned
-rulesets. Repository-scoped mode audits parent state but never widens authority to
-change it.
+`gh-settings` audits or reconciles GitHub governance against an authorized profile,
+with central organization controls and repository-scoped operation.
 
 Read the [canonical GitHub settings standard](plugins/gh-settings/skills/sync/references/standard.md)
 or invoke `$gh-settings:sync` after installation.
 
 ### ACG Release
 
-`acg-release` is the organization release-standard owner for repositories whose
-canonical GitHub owner is `acg-box`. Its only current skill audits, migrates,
-normalizes, operates, and verifies Developer ID releases for Sparkle-enabled macOS
-ZIP applications. It stops as not applicable for repositories outside `acg-box/*`
-and does not claim support for DMG, PKG, or non-Sparkle workflows. Future release
-types get separate skills only after they have real evidence and an independent
-owner contract.
+`acg-release` guides Developer ID-notarized Sparkle macOS ZIP releases for
+repositories whose canonical GitHub owner is `acg-box`.
 
 Read the [canonical ACG Box macOS release standard](plugins/acg-release/skills/macos/references/standard.md)
 or invoke `$acg-release:macos` after installation.

@@ -3,8 +3,8 @@
 ## Repository
 
 This repository publishes ACG Box engineering standards as small Codex plugins.
-Start with [OpenWiki quickstart](openwiki/quickstart.md). Read the owning plugin
-skill and its direct references before you change runtime guidance.
+Use [OpenWiki quickstart](openwiki/quickstart.md) for repository navigation. Read
+the owning skill and relevant canonical sections when changing runtime guidance.
 
 ## Authority
 
@@ -25,6 +25,8 @@ skill and its direct references before you change runtime guidance.
   skills, and `agents/openai.yaml`.
 - Keep one canonical standard. Link to it instead of copying its rules into
   OpenWiki or the README.
+- Skills supply team policy, non-obvious constraints, and completion criteria.
+  Leave general implementation, troubleshooting, and test selection to the model.
 - Run `cargo make check`, the Plugin Creator validator, and the Skill Creator
   validator before a ready claim.
 - For durable workflow or layout changes, update source authority first. Then run

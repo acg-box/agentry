@@ -20,15 +20,8 @@ openwiki:
 `acg-box/exp` publishes small ACG Box engineering standards as Codex plugins. Both
 current plugins are instruction-only:
 
-- `gh-settings` audits GitHub governance, puts enforceable controls at the highest
-  supported scope in organization-wide mode, keeps parent state read-only in
-  repository-scoped mode, previews exact drift, and reconciles only explicitly
-  approved changes. Its canonical standard is
-  [`plugins/gh-settings/skills/sync/references/standard.md`](../plugins/gh-settings/skills/sync/references/standard.md).
-- `acg-release` owns release standards only for repositories whose canonical
-  GitHub owner is `acg-box`. Its only current skill manages Developer ID-notarized
-  Sparkle macOS ZIP releases. Its canonical standard is
-  [`plugins/acg-release/skills/macos/references/standard.md`](../plugins/acg-release/skills/macos/references/standard.md).
+- [`gh-settings`](gh-settings.md) owns GitHub governance profiles.
+- [`acg-release`](acg-release.md) owns the ACG Box macOS release standard.
 
 The repository has no application, reusable package, executable, MCP server, or
 checked-in test program. Installable runtime belongs under `plugins/`; maintainer
@@ -40,8 +33,8 @@ context belongs under `openwiki/`.
 2. Read [GitHub Settings](gh-settings.md) or [ACG Release: macOS](acg-release.md)
    for the plugin you are changing.
 3. Read [Install And Validation](operations.md) for narrow checks and release limits.
-4. Before changing runtime behavior, read the full canonical standard for the
-   selected plugin.
+4. Before changing runtime behavior, read the relevant canonical sections for
+   the selected plugin.
 
 ## Task Routing
 

@@ -10,6 +10,10 @@ scope and authority sections plus the controls needed for the requested profile;
 read the full standard for a comprehensive governance audit. Check current
 GitHub documentation for control availability and billing.
 
+For free-feature or cost-control requests, also read the standard's
+`Prevent Additional Charges` section. Preventing unapproved charges is an
+acceptance condition, not a conclusion from feature toggles alone.
+
 Organization-wide work puts controls at the highest sufficient authorized scope.
 Repository-scoped work keeps parent state read-only. Preserve the distinction
 between enforced parent policy and repository-overridable defaults.

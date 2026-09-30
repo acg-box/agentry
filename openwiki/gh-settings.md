@@ -20,7 +20,9 @@ metadata, and canonical governance standard. It has no executable runtime.
 
 Use the [skill](../plugins/gh-settings/skills/sync/SKILL.md) for task scope and the
 [standard](../plugins/gh-settings/skills/sync/references/standard.md) for team
-policy. The standard covers scope and authority, security profiles, dependency
+policy. For free-feature and cost-control requests, read the standard's
+[Prevent Additional Charges](../plugins/gh-settings/skills/sync/references/standard.md#prevent-additional-charges)
+section. The standard covers scope and authority, security profiles, dependency
 submission, Dependabot defaults, rulesets, merge policy, other settings, and
 reconciliation. Load the sections relevant to the requested profile; a complete
 governance audit uses the whole standard.

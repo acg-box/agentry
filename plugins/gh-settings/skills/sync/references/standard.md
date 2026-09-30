@@ -42,10 +42,45 @@ push protection, and paid dependent features unless separately authorized. Keep
 malware alerts within their supported ecosystems and delegated dismissal disabled
 when it requires a paid product.
 
-Code Quality is separate from CodeQL and Code Security. Check its account allowance,
-repository access, and enforcement when in scope. A `No repositories` policy must
-not start scans or incur charges; leave it disabled and report a gap if GitHub
-cannot enforce that state without enablement.
+Code Quality is separate from CodeQL and Code Security. For a no-extra-cost
+profile, keep it disabled on public and private repositories. At Enterprise scope,
+verify organization access is unavailable and repository administrators cannot
+enable it. Where organization controls remain available, require `No repositories`
+with `Enforce access`; the default alone does not disable repository opt-ins.
+Read back effective repository analysis as off. Never enable the product to expose
+a hidden control or complete verification.
+
+### Prevent Additional Charges
+
+Preserve the authorized base subscription and seat allowance. The acg-box baseline
+allows one GHEC seat and no additional paid products or metered charges unless the
+user changes that profile. Keep confirmed free features. Trials, discounts,
+included quotas, and public visibility do not prove that a feature and its
+dependent Actions, storage, or AI workloads cannot incur charges.
+
+Within the authorized scope, disable unapproved paid products and use parent
+enforcement to prevent lower scopes from enabling them again. For retained metered
+services, verify a supported zero-paid-spend stop while preserving included free
+usage where supported. Report an uncovered cost risk instead of enabling a feature
+with uncertain billing to maximize security coverage.
+
+Budgets supplement product controls. Verify current product/SKU support, units,
+scope, exclusions, and stop-usage enforcement. Alert-only budgets do not cap use;
+GHEC license budgets cannot prevent additional seats. Do not assume Code Quality
+supports a budget or that a GHAS budget disables existing paid enablement. Recheck
+provider capabilities instead of treating historical API limitations as permanent.
+
+For account-wide cost audits, inspect consumed licenses and billable usage,
+including outside collaborators and invitations that can add seats. Cost control
+does not authorize removing people or repository access. Report excess seats and
+the proposed access change unless that exact change is already authorized.
+
+Verify effective product state, restrictions on re-enablement, and current-period
+net charges separately. Account for reporting delay, usage before a budget existed,
+and license charges that continue after disablement or user removal. Current
+consumed seats do not establish the period's billable seats. Report remaining
+charges and gaps; do not promise a monthly total or zero future charges from
+current settings, absent usage records, or partial-period totals alone.
 
 ### Automatic Dependency Submission
 
@@ -167,6 +202,11 @@ Use current official documentation for the controls involved:
 - [security configurations](https://docs.github.com/en/rest/code-security/configurations);
 - [Actions permissions](https://docs.github.com/en/rest/actions/permissions); and
 - [GraphQL](https://docs.github.com/en/graphql/reference).
+
+For cost controls, consult [budgets and alerts](https://docs.github.com/en/billing/concepts/budgets-and-alerts),
+[Code Quality disablement](https://docs.github.com/en/code-security/how-tos/maintain-quality-code/disable-code-quality),
+[Enterprise Code Quality policy](https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise),
+and [enterprise license billing](https://docs.github.com/en/enterprise-cloud@latest/billing/concepts/enterprise-billing/usage-based-licenses).
 
 Consult the relevant product documentation for billing, default precedence,
 attachment compatibility, and automatic dependency submission prerequisites.

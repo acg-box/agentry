@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decisions",
+    "evidence_paths",
+    "rationale"
+  ],
+  "properties": {
+    "decisions": {
+      "type": "array",
+      "description": "Return one entry for every labeled proposal. Accept means the proposal can proceed as written. Change means a proposed current action cannot proceed as written. Use Defer only when the proposal contains no current action and the supplied evidence cannot decide it.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "disposition"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "disposition": {
+            "type": "string",
+            "enum": [
+              "accept",
+              "change",
+              "defer"
+            ]
+          }
+        }
+      }
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rationale": {
+      "type": "string"
+    }
+  }
+}

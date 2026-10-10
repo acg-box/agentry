@@ -1,6 +1,13 @@
 {
   "schemaVersion": 1,
   "pages": {
+    "/openwiki/automation.md": {
+      "pageVersion": "sha256:c2731f20753cc34a0a341799212e64aa298e1a24b4d244fab90d3ada58dd8e9b",
+      "completedBy": "codex",
+      "completedRunId": "b76bcc47-e4e2-45e4-b429-f9dacb921636",
+      "gitHead": "2a53ba5c297d444b91e3b0ee7b8ea121a738e47f",
+      "sourceFingerprint": "sha256:935f8c9503d134208cc3f5d0daabda9d00859fe8c998b773b3dbebf8f79bdf18"
+    },
     "/openwiki/gh-settings.md": {
       "gitHead": "6cc1321108f2d6eb6aee5fea114671be612508e6",
       "sourceFingerprint": "sha256:152d864d581feba9369d1121aac7c2cae1477f7cc26c4cb0d3a20f7ca90b8a00",
@@ -9,18 +16,18 @@
       "completedRunId": "75e0ceea-f336-4a7b-9623-d8ec92ba7ce7"
     },
     "/openwiki/operations.md": {
-      "pageVersion": "sha256:f71434f89e38c9b5d53f746e255ca086acd4ebd9400ceb7877bf535ec1ba232a",
+      "pageVersion": "sha256:6d1359815bc05c393cfd65b4f5510a1cb51470d5775d7fc71cdc8c57542ba7a0",
       "completedBy": "codex",
-      "completedRunId": "aaabce8b-09ff-44c8-9264-b3553aafe2c3",
-      "gitHead": "6cc1321108f2d6eb6aee5fea114671be612508e6",
-      "sourceFingerprint": "sha256:b108b8c9330de78051b392e1b90717dfc1af3a2f3b0c615cdf068f69df1522a9"
+      "completedRunId": "b76bcc47-e4e2-45e4-b429-f9dacb921636",
+      "gitHead": "2a53ba5c297d444b91e3b0ee7b8ea121a738e47f",
+      "sourceFingerprint": "sha256:935f8c9503d134208cc3f5d0daabda9d00859fe8c998b773b3dbebf8f79bdf18"
     },
     "/openwiki/quickstart.md": {
-      "pageVersion": "sha256:ce2ede14eb354d6a1df2891164ed15fd8ea5686bf6a972ca8d6bdf2103cf7b44",
+      "pageVersion": "sha256:1e1faf8c0c74347315521359b7e380e2a15134b9462da32fda906849f79ea6c1",
       "completedBy": "codex",
-      "completedRunId": "aaabce8b-09ff-44c8-9264-b3553aafe2c3",
-      "gitHead": "6cc1321108f2d6eb6aee5fea114671be612508e6",
-      "sourceFingerprint": "sha256:b108b8c9330de78051b392e1b90717dfc1af3a2f3b0c615cdf068f69df1522a9"
+      "completedRunId": "b76bcc47-e4e2-45e4-b429-f9dacb921636",
+      "gitHead": "2a53ba5c297d444b91e3b0ee7b8ea121a738e47f",
+      "sourceFingerprint": "sha256:935f8c9503d134208cc3f5d0daabda9d00859fe8c998b773b3dbebf8f79bdf18"
     }
   }
 }

@@ -1,0 +1,49 @@
+{
+  "name": "automation",
+  "version": "0.1.2",
+  "description": "Guidance and read-only portfolio analysis for scoped Codex automation audits and lifecycle management.",
+  "author": {
+    "name": "ACG Box",
+    "url": "https://github.com/acg-box"
+  },
+  "homepage": "https://github.com/acg-box/agentry",
+  "repository": "https://github.com/acg-box/agentry",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "automation",
+    "scheduled-tasks",
+    "dependencies",
+    "concurrency",
+    "lifecycle"
+  ],
+  "package": {
+    "include": [
+      ".codex-plugin/**",
+      "references/**",
+      "scripts/**",
+      "skills/**"
+    ],
+    "exclude": []
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Automation",
+    "shortDescription": "Audit and manage Codex automations safely.",
+    "longDescription": "Automation provides a read-only audit workflow, a deterministic analyzer for normalized portfolio snapshots, and a separately authorized management workflow for Codex scheduled tasks. It models dependencies, shared resources, overlap, replay, time semantics, evidence coverage, staged changes, and retirement without claiming scheduler guarantees that the current Codex surface does not expose.",
+    "developerName": "ACG Box",
+    "category": "Productivity",
+    "websiteURL": "https://github.com/acg-box/agentry",
+    "privacyPolicyURL": "https://github.com/acg-box/agentry/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/acg-box/agentry/blob/main/LICENSE",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Audit my existing Codex Scheduled task portfolio for dependencies, overlap, shared resources, and coverage gaps.",
+      "Design a safe recurring Codex automation portfolio for these scheduled workflows.",
+      "Update or retire these existing Codex Scheduled automations with explicit lifecycle gates."
+    ]
+  }
+}

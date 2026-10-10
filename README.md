@@ -29,6 +29,12 @@ repositories whose canonical GitHub owner is `acg-box`.
 Read the [canonical ACG Box macOS release standard](plugins/acg-release/skills/macos/references/standard.md)
 or invoke `$acg-release:macos` after installation.
 
+### Automation
+
+`automation` audits Codex Scheduled tasks and manages authorized lifecycle
+changes. It includes a read-only analyzer for normalized portfolio snapshots.
+Use `$automation:audit` or `$automation:manage` after installation.
+
 ## Install
 
 Add this Git marketplace, then install the optional plugins:
@@ -37,10 +43,12 @@ Add this Git marketplace, then install the optional plugins:
 codex plugin marketplace add acg-box/agentry --ref main
 codex plugin add gh-settings@acg-box
 codex plugin add acg-release@acg-box
+codex plugin add automation@acg-box
 ```
 
-Both plugins are instruction-only. They have no hook, app, MCP server,
-credential, network client, or writable runtime state. Installation does not
+The release and GitHub settings plugins contain instructions only. Automation
+also includes a local read-only analyzer. The plugins have no hook, app, MCP
+server, bundled credential, or network client. Installation does not
 authorize GitHub settings changes, repository changes, CI changes, releases, or
 deployments. See the repository [privacy policy](PRIVACY.md).
 
@@ -50,12 +58,14 @@ deployments. See the repository [privacy policy](PRIVACY.md).
 | --- | --- |
 | `plugins/gh-settings/` | Installable GitHub settings runtime |
 | `plugins/acg-release/` | Installable ACG Box release-standard runtime; current `macos` skill only |
+| `plugins/automation/` | Automation guidance and read-only portfolio analyzer |
+| `dev/plugins/automation/` | Synthetic fixtures, tests, and benchmark tools |
 | `openwiki/` | Repository context and maintainer operations |
 | `.agents/plugins/marketplace.json` | Marketplace discovery |
 | `Makefile.toml` | Repository-local validation commands |
 
-There is no `apps/`, `packages/`, or `dev/` tree. Add one only when a real owner
-and validation contract exist.
+There is no `apps/` or `packages/` tree. Development assets stay outside the
+installed plugin directories.
 
 ## Develop
 

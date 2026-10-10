@@ -1,0 +1,6 @@
+interface:
+  display_name: "Manage Automations"
+  short_description: "Manage explicit Codex scheduled task lifecycles"
+  default_prompt: "Use $automation:manage to design or safely change this explicit Codex Scheduled or recurring automation scope."
+policy:
+  allow_implicit_invocation: true

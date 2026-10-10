@@ -3,3 +3,6 @@
 .workspaces/
 .worktrees/
 tmp/
+__pycache__/
+*.pyc
+dev/plugins/automation/evaluations/

@@ -1,6 +1,6 @@
 {
   "name": "gh-settings",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Centralize GitHub governance, preview exact drift, and reconcile only explicitly approved controls.",
   "author": {
     "name": "ACG Box",

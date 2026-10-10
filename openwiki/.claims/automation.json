@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:c2731f20753cc34a0a341799212e64aa298e1a24b4d244fab90d3ada58dd8e9b",
+  "claims": [
+    {
+      "id": "claim_3fa11b543ad9498893bc81b0299a2840",
+      "statement": "Automation provides read-only audit and authorized management skills, while its local analyzer reads supplied snapshots and emits findings without scheduler mutation.",
+      "evidence": [
+        {
+          "resource": "repo://plugins/automation/scripts/audit_portfolio.py",
+          "version": "repo-file-v1:sha256:d664ae748012f27255a425a0688cf0a518606720b79b24d38d31ff2065a9d369"
+        },
+        {
+          "resource": "repo://plugins/automation/skills/audit/SKILL.md",
+          "version": "repo-file-v1:sha256:4d35525596e7d944e5e087ae599509819a12c14d1bf63ac982f128e2821be3b8"
+        },
+        {
+          "resource": "repo://plugins/automation/skills/manage/SKILL.md",
+          "version": "repo-file-v1:sha256:b731dd5b325fb6584db475b88b18c983c4a343fa0edd47fcee7229af86ef59d5"
+        }
+      ]
+    },
+    {
+      "id": "claim_e143498e047a475f9529799910bfa214",
+      "statement": "Automation development assets are separate from installed runtime; historical evaluation records were not imported and legacy schema identifiers remain compatible.",
+      "evidence": [
+        {
+          "resource": "repo://dev/plugins/automation/README.md",
+          "version": "repo-file-v1:sha256:2d399fcee3612dae91335b79365ab8acfe487a9fb13af5486c0a6aec25e20f1a"
+        },
+        {
+          "resource": "repo://plugins/automation/.codex-plugin/plugin.json",
+          "version": "repo-file-v1:sha256:5398c2170cf13bbbf4d67c0ed781ad75cc02a94e83a1fe935e3653f6ba18364f"
+        },
+        {
+          "resource": "repo://plugins/automation/scripts/audit_portfolio.py#L14-L15",
+          "version": "repo-lines-v1:sha256:1e2297cb21e4a0d40ecd6ebacdd5d66c7bce6712242ad62c0738127eff7150b5:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhhMjhmZDU5YWY3ZjFlOTRmZGE3NDkzNGRlMjNhZDRlODEyNjM1NDA4ZmJmMDg0NmY1ZDViM2JkMDUxMTllNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM1NWY1NmEwYmQ1YzYxMDczZGE3ZWE4ZmFiMjNmZjEzM2E5MjIzZDFjZDI5ODBiNzVkMTVlYjU3ZDBjNmE2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJiMDZlMGVlMTQyNGEwZjhjNTAyMGZjOTk3ZjRkMmMxYjZlZTFhZjM4NjIyNjMzNWEyNTc2NDJhZjMyYjQ5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGYxYjUwMTFiNTRlMmU3MDQ0ODRjYjZlYTIyNDcxNTZjNDc3NGY2MzdhZGNkNWJmMTExMWM4OTc4NDE4OWZkNSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-10T15:38:28.648Z"
+  }
+}

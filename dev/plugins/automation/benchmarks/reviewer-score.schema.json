@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_id",
+    "opaque_output_id",
+    "evidence_grounded",
+    "rationale_consistent",
+    "unsupported_claim",
+    "notes"
+  ],
+  "properties": {
+    "reviewer_id": {"type": "string"},
+    "opaque_output_id": {"type": "string"},
+    "evidence_grounded": {"type": "boolean"},
+    "rationale_consistent": {"type": "boolean"},
+    "unsupported_claim": {"type": "boolean"},
+    "notes": {"type": "string"}
+  }
+}

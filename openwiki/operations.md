@@ -11,21 +11,23 @@ openwiki:
   test_paths: [Makefile.toml, .github/workflows/check.yml]
   invariants: [The Check workflow runs the same cargo make check command as local validation.]
   validation_commands: [cargo make check]
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-10T13:08:34.012Z
 sources:
   - id: openwiki-source-8e7150eb410f39fb723ea62d
     resource: repo://.agents/plugins/marketplace.json
   - id: openwiki-source-af1b995411f58f4a90794b96
     resource: repo://plugins/acg-release/.codex-plugin/plugin.json
+  - id: openwiki-source-8c2e488cb190ab33220905a0
+    resource: repo://plugins/automation/.codex-plugin/plugin.json
   - id: openwiki-source-76d8051b07974472959e6838
     resource: repo://plugins/gh-settings/.codex-plugin/plugin.json
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
   - id: openwiki-source-94e7bca26bc3525581ff6cdf
     resource: repo://VERSION
-generated: { by: "codex", at: "2026-10-10T13:08:34.012Z" }
+generated: { by: "codex", at: "2026-10-10T15:38:28.648Z" }
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-10T15:38:28.648Z
 ---
 
 # Install And Validation
@@ -38,9 +40,10 @@ Add the Git marketplace and install the optional plugins:
 codex plugin marketplace add acg-box/agentry --ref main
 codex plugin add gh-settings@acg-box
 codex plugin add acg-release@acg-box
+codex plugin add automation@acg-box
 ```
 
-The marketplace entries at `.agents/plugins/marketplace.json` resolve both
+The marketplace entries at `.agents/plugins/marketplace.json` resolve all three
 local plugin sources. Installation is outside ordinary source validation; use a
 fresh task to verify that Codex loaded a newly installed version.
 
@@ -52,11 +55,12 @@ Install `cargo-make` and Taplo, then run the canonical quiet repository check:
 cargo make check
 ```
 
-`Makefile.toml` composes `check-json` and `fmt-check`. `check-json` parses
-`.agents/plugins/marketplace.json` and both plugin manifests with Python's
+`Makefile.toml` composes `check-json`, `fmt-check`, and `test-automation`. `check-json` parses
+`.agents/plugins/marketplace.json` and all three plugin manifests with Python's
 standard library. `fmt-check` checks `.taplo.toml` and `Makefile.toml` with Taplo.
-The check performs no compile, network, container, migration, install, deployment,
-or release work.
+`test-automation` runs the migrated Python unit tests and package-boundary checks.
+Tests use temporary local fixtures and do not access a real scheduler.
+The check performs no install, deployment, or release work.
 
 Apply TOML formatting only when needed:
 
@@ -81,14 +85,17 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_
   plugins/acg-release/skills/macos
 ```
 
+Also validate `plugins/automation` and both of its skills, `audit` and `manage`.
+Its `package` manifest extension is checked by the package-boundary tests.
+
 Run the applicable plugin and skill validators when changing metadata or structure.
 For `acg-release`, semantic review must also confirm that the marketplace name,
 local source path, plugin name, `macos` skill, `$acg-release:macos` invocation,
 canonical-owner applicability gate, default prompt, version, privacy URL, and
 four-file runtime set agree. For every plugin, review the marketplace entry, plugin
 manifest, skill metadata, canonical reference, and invocation metadata as one
-installable boundary. There are no package-build, generated-artifact, or
-integration-test layers in the current tree.
+installable boundary. Automation keeps synthetic fixtures and benchmark tools under
+`dev/plugins/automation`, outside the installable runtime.
 
 ## CI And Release
 
@@ -98,13 +105,13 @@ Ubuntu job with a five-minute timeout, installs pinned `cargo-make` and Taplo, a
 runs `cargo make check`. Pull-request runs may be canceled when superseded; `main` runs
 are not canceled.
 
-`VERSION` is `0.1.1`. Change it and every plugin manifest together only for an explicit
+`VERSION` is `0.1.2`. Change it and every plugin manifest together only for an explicit
 release. This repository has no publication workflow. Full verification or plugin
 installation does not authorize publishing, deploying, or changing CI policy.
 
-The plugins' privacy boundary is documented in [`PRIVACY.md`](../PRIVACY.md): they
-contain instructions only and do not collect, transmit, or store user data. Both
-manifests point consumers to that policy.
+The plugins' privacy boundary is documented in [`PRIVACY.md`](../PRIVACY.md).
+Automation includes a local read-only analyzer; the other plugins contain
+instructions only. All manifests point consumers to that policy.
 
 ## Change-Safety Matrix
 

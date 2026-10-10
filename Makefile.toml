@@ -12,7 +12,7 @@ skip_core_tasks = true
 [tasks.check]
 clear = true
 workspace = false
-dependencies = ["check-json", "fmt-check"]
+dependencies = ["check-json", "fmt-check", "test-automation"]
 
 [tasks.check-json]
 workspace = false
@@ -21,6 +21,7 @@ script = [
 	"python3 -m json.tool .agents/plugins/marketplace.json >/dev/null",
 	"python3 -m json.tool plugins/gh-settings/.codex-plugin/plugin.json >/dev/null",
 	"python3 -m json.tool plugins/acg-release/.codex-plugin/plugin.json >/dev/null",
+	"python3 -m json.tool plugins/automation/.codex-plugin/plugin.json >/dev/null",
 ]
 
 # Format
@@ -48,3 +49,17 @@ args = ["fmt", ".taplo.toml", "Makefile.toml"]
 workspace = false
 command = "taplo"
 args = ["fmt", "--check", ".taplo.toml", "Makefile.toml"]
+
+[tasks.test-automation]
+workspace = false
+command = "python3"
+args = [
+	"-m",
+	"unittest",
+	"discover",
+	"-s",
+	"dev/plugins/automation/tests",
+	"-p",
+	"test_*.py",
+]
+env = { PYTHONDONTWRITEBYTECODE = "1" }

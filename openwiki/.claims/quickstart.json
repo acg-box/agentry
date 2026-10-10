@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:ce2ede14eb354d6a1df2891164ed15fd8ea5686bf6a972ca8d6bdf2103cf7b44",
+  "pageVersion": "sha256:c8fe3a0ba8c9c6d3ae25040ee0af2d44d4251e8aa7acc170d64f33ffd059bf10",
   "claims": [
     {
       "id": "claim_fa6907a5e9da4f7fba94258ef9c13755",
-      "statement": "Agentry publishes ACG Box engineering practices as small Codex plugins, with gh-settings and acg-release as its current plugins.",
+      "statement": "Agentry publishes ACG Box engineering practices as Codex plugins: gh-settings, acg-release, and automation.",
       "evidence": [
         {
           "resource": "repo://.agents/plugins/marketplace.json",
-          "version": "repo-file-v1:sha256:a65bf8b183782875ca01408d8828862cb63e6f1ea5b903ec17940209f776fa98"
+          "version": "repo-file-v1:sha256:bd59c79081cdf8e59fdce08c3e551d2bfd5eef605fea73a0e209b80511801391"
         },
         {
-          "resource": "repo://README.md#L1-L29",
-          "version": "repo-lines-v1:sha256:bb31a47294e588a06280824d65a2f2b0960bbcd42027d3690bf79d849ea87658:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjOTk2NjBkYWMyZGNmN2E2MGNhMDIyZWUwNjM2MDU3ZjJiZmU1NTE0Yjg1YmJkZDQ2M2U0ZTMzZGI3NDdlNGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxOGUxY2JmYTgzZmRjNTE3OWQ1MjQ2ZWY0NzNkMjdhY2Q3MmNhZDUwZjQzMzk5MDMzNzQyMWFiZmYyZmQwMjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYwMThjYWM4MGNiZjUwMTNkOTk4NDE1MjFlZTQ2YzI0NjgyZTA3NTFlNTM3YTZmOTc4MWRlMzQ4MWE1OGZiMGUifQ"
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-10T13:08:34.012Z"
+    "at": "2026-10-10T15:43:04.178Z"
   }
 }

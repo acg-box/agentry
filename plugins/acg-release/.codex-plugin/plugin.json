@@ -1,6 +1,6 @@
 {
   "name": "acg-release",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Apply ACG Box release standards only to repositories whose canonical GitHub owner is acg-box; the current macOS skill manages Developer ID-notarized Sparkle ZIP releases.",
   "author": {
     "name": "ACG Box",

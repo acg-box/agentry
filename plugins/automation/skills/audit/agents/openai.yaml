@@ -1,0 +1,6 @@
+interface:
+  display_name: "Audit Automations"
+  short_description: "Audit existing Codex scheduled tasks safely"
+  default_prompt: "Use $automation:audit to audit this existing Codex Scheduled or recurring automation scope without changing it."
+policy:
+  allow_implicit_invocation: true

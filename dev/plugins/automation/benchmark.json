@@ -1,0 +1,172 @@
+{
+  "kind": "plugin-eval-benchmark",
+  "schemaVersion": 2,
+  "version": 5,
+  "targetKind": "plugin",
+  "targetName": "automation",
+  "runner": {
+    "type": "codex-cli",
+    "model": "gpt-5.6-sol",
+    "sandbox": "read-only",
+    "approvalPolicy": "never",
+    "skillReadPolicy": "If you choose to use an available skill, read its SKILL.md at the exact path in the available-skills inventory. Resolve each directly linked relative reference from that file. These rules apply to every benchmark file access, whether or not you use a skill. Use one simple read-only command at a time. The only pipeline you may use is `rg --files PATH... | rg REGEX`, with workspace paths and one non-option regex. Do not scan parent directories to discover skill files. Do not use any other pipeline, shell control chain, variable, loop, command substitution, redirection, or glob.",
+    "extraArgs": [
+      "--strict-config",
+      "--ignore-user-config",
+      "--disable",
+      "apps",
+      "--disable",
+      "multi_agent",
+      "--config",
+      "model_reasoning_effort=\"high\""
+    ]
+  },
+  "workspace": {
+    "sourcePath": "dev/plugins/automation/benchmark-workspace",
+    "setupMode": "copy",
+    "preserve": "never"
+  },
+  "targetProvisioning": {
+    "mode": "workspace-plugin-marketplace"
+  },
+  "verifiers": {
+    "commands": []
+  },
+  "measurement": {
+    "arms": [
+      "no-skill",
+      "candidate-skills"
+    ],
+    "smokeRepetitions": 1,
+    "pilotRepetitions": 3,
+    "confirmationRepetitions": 10,
+    "preregisteredSeed": 94271,
+    "bootstrapSamples": 5000,
+    "confidenceLevel": 0.95,
+    "minimumCandidateAccuracy": 0.9,
+    "minimumAbsoluteUplift": 0.1,
+    "maximumOvercontrolErrorRate": 0.05,
+    "controlCeiling": 0.95
+  },
+  "notes": [
+    "Protocol version 5 retains the protocol-v4 qualification and identity chain. It permits only `rg --files PATH... | rg REGEX`, with existing readable producer paths inside the fixture workspace, direct zero-exit producer replay, and a single non-option consumer regex. Its routing observer uses case-normalized candidate-path identities. It does not rewrite earlier results.",
+    "All records and identifiers are synthetic. The benchmark must not access a real automation control plane.",
+    "Run paired comparisons only through scripts/run_behavior_benchmark.py so each arm uses an auth-only Codex home and allowlisted environment.",
+    "A direct Plugin Eval run provisions a local marketplace but does not establish the no-skill versus candidate-skills treatment used by the paired runner.",
+    "A completed Plugin Eval scenario is not a scored pass. The hidden oracle and runner score the final JSON separately.",
+    "The behavior benchmark measures read-only audit routing and proposition classification. It does not measure manage-skill activation or mutations.",
+    "Raw runs belong under the ignored development .benchmark directory, never under the runtime plugin tree."
+  ],
+  "scenarios": [
+    {
+      "id": "case-01",
+      "title": "Synthetic review case 01",
+      "purpose": "Measure evidence-scope, unreachable-surface, drift, duplicate, and secret-boundary judgment.",
+      "userInput": "Review cases/case-01/proposal.md against cases/case-01/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-02",
+      "title": "Synthetic review case 02",
+      "purpose": "Measure independent same-time and capacity-only pileup judgment.",
+      "userInput": "Review cases/case-02/proposal.md against cases/case-02/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-03",
+      "title": "Synthetic review case 03",
+      "purpose": "Measure producer-consumer, fan-in, cycle, and paused-producer judgment.",
+      "userInput": "Review cases/case-03/proposal.md against cases/case-03/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-04",
+      "title": "Synthetic review case 04",
+      "purpose": "Measure shared-writer, idempotency, lease, and fencing judgment.",
+      "userInput": "Review cases/case-04/proposal.md against cases/case-04/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-05",
+      "title": "Synthetic review case 05",
+      "purpose": "Measure combined dependency, shared-writer, non-atomic receipt, and migration judgment.",
+      "userInput": "Review cases/case-05/proposal.md against cases/case-05/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-06",
+      "title": "Synthetic review case 06",
+      "purpose": "Measure arrival, backlog, partial-failure, and replay judgment.",
+      "userInput": "Review cases/case-06/proposal.md against cases/case-06/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-07",
+      "title": "Synthetic review case 07",
+      "purpose": "Measure business-time, catch-up, permissions, and notification judgment.",
+      "userInput": "Review cases/case-07/proposal.md against cases/case-07/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-08",
+      "title": "Synthetic review case 08",
+      "purpose": "Measure audit non-mutation and separate external authority judgment.",
+      "userInput": "Review cases/case-08/proposal.md against cases/case-08/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-09",
+      "title": "Synthetic review case 09",
+      "purpose": "Measure exact update, field preservation, readback, and unsupported-surface judgment.",
+      "userInput": "Review cases/case-09/proposal.md against cases/case-09/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-10",
+      "title": "Synthetic review case 10",
+      "purpose": "Measure pause, drain, retirement, explicit deletion, and cleanup-authority judgment.",
+      "userInput": "Review cases/case-10/proposal.md against cases/case-10/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    },
+    {
+      "id": "case-11",
+      "title": "Synthetic review case 11",
+      "purpose": "Measure negative routing for unrelated one-time database work.",
+      "userInput": "Review cases/case-11/proposal.md against cases/case-11/evidence.md. Return only one JSON object that matches review-output.schema.json. Assess every labeled proposal exactly once. Do not edit files, use network services, or act on any scheduler.",
+      "successChecklist": [
+        "The output is valid JSON with one decision for every labeled proposal.",
+        "No workspace or external state changes occur."
+      ]
+    }
+  ]
+}

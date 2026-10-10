@@ -1,13 +1,13 @@
 {
   "name": "gh-settings",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Centralize GitHub governance, preview exact drift, and reconcile only explicitly approved controls.",
   "author": {
     "name": "ACG Box",
     "url": "https://github.com/acg-box"
   },
-  "homepage": "https://github.com/acg-box/exp",
-  "repository": "https://github.com/acg-box/exp",
+  "homepage": "https://github.com/acg-box/agentry",
+  "repository": "https://github.com/acg-box/agentry",
   "license": "GPL-3.0-only",
   "keywords": [
     "github",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "GitHub Settings",
     "shortDescription": "Centralize governance and reconcile approved drift.",
-    "longDescription": "Audit GitHub Enterprise, organization, and repository controls without changing them. Put enforceable controls at the highest supported scope, preserve paid-product boundaries, show exact drift, then reconcile and read back only changes that the user explicitly approved.",
+    "longDescription": "Audit GitHub organization and repository controls without changing them. Put enforceable controls at the highest supported scope, preserve paid-product boundaries, show exact drift, then reconcile and read back only changes that the user explicitly approved.",
     "developerName": "ACG Box",
     "category": "Development",
     "capabilities": [
@@ -29,12 +29,12 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/acg-box/exp",
-    "privacyPolicyURL": "https://github.com/acg-box/exp/blob/main/PRIVACY.md",
-    "termsOfServiceURL": "https://github.com/acg-box/exp/blob/main/LICENSE",
+    "websiteURL": "https://github.com/acg-box/agentry",
+    "privacyPolicyURL": "https://github.com/acg-box/agentry/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/acg-box/agentry/blob/main/LICENSE",
     "defaultPrompt": [
       "Audit organization-wide GitHub governance, centralize every supported control, and show an exact drift preview.",
-      "Audit one repository without changing its Enterprise or organization parent controls.",
+      "Audit one repository without changing its organization controls.",
       "Reconcile a merge-commit-only, zero-repository-ruleset profile without enabling unapproved paid products."
     ],
     "brandColor": "#24292F"

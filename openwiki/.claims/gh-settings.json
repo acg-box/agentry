@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:2c8accd0c37249f841240d4e19f9c1f2a0dbf5dee2e6263ce39079f2851d2d82",
+  "claims": [
+    {
+      "id": "claim_539d8e3ba46a4d7b8177ab3d04ec280d",
+      "statement": "The gh-settings skill audits or reconciles GitHub organization and repository governance; repository-scoped work keeps organization state read-only.",
+      "evidence": [
+        {
+          "resource": "repo://plugins/gh-settings/skills/sync/SKILL.md#L1-L19",
+          "version": "repo-lines-v1:sha256:01225e6e9d51dbb09eb454d45a7eba8b3efe95955855c18eac9900b8832e4e6d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1MmQ3MTExMDNkNTBhNDM3ODMwYzZmYmNkMDRmYjRiYWI0OWEwZjgyZjZkMjZkMWM3OTFjNmU4NDg4ZGQwOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0YWQ1MGIyNzRhOTcxMjlmZDZmODc1NWQ1YmJhODRhYjMwNDllNmYwODk5YjFkOWZjZGM2NDk5NmNjMWZiMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI2ODIyNDNlNzMyYjQ4NDA4ZDU0Yjc4MDE0YWNjOGY0MjA1ODA5ZDdkZWQ0OTZkNDMxNGI4MjVmN2MyZTMzNTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f28a39a6a881491b85ed7f7ddcdef862",
+      "statement": "The governance standard defines cost control requirements without granting authority to remove people or repository access.",
+      "evidence": [
+        {
+          "resource": "repo://plugins/gh-settings/skills/sync/references/standard.md#L51-L80",
+          "version": "repo-lines-v1:sha256:71edfd3e859791b12e9706f966914fa94fb6d3a44f87651dbd8d14a8b03c59d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhMzQ0MmZlM2IyOWZmZTE4M2QzOGE5YzNjZGQxYmUyMDkyMzRlYzhjZmU1MGRmNzhjMGUzODQ1N2U3OWMyYjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5YWNkMjUzMmNhOTRlYWEzZGIwZjJmMDI5NDgxY2Y1ZDMxY2ZkNzkwOWI5MmUwMzAxMDdkZjU4ZTI2ZTM2NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwM2FjYWQ0OGYyZDYxNjc2MGE5ZWIxMWM0YjFmODliZDVlNTI4YWRlMzUxOTNmNTEwZGI0OTZmZWRjNTE4MmMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-10T13:00:35.168Z"
+  }
+}

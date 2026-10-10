@@ -1,8 +1,10 @@
 <div align="center">
 
-# exp
+# Agentry
 
-Small, reusable ACG Box engineering standards.
+Skills, standards, and workflows for agents.
+
+Agentry publishes ACG Box engineering practices as small, reusable Codex plugins.
 
 [![License](https://img.shields.io/badge/License-GPLv3%20only-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-experimental-f59e0b.svg)](VERSION)
@@ -32,7 +34,7 @@ or invoke `$acg-release:macos` after installation.
 Add this Git marketplace, then install the optional plugins:
 
 ```sh
-codex plugin marketplace add acg-box/exp --ref main
+codex plugin marketplace add acg-box/agentry --ref main
 codex plugin add gh-settings@acg-box
 codex plugin add acg-release@acg-box
 ```

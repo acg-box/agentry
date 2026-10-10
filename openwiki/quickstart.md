@@ -11,13 +11,22 @@ openwiki:
   test_paths: [.github/workflows/check.yml, Makefile.toml]
   invariants: [The plugin manifest, marketplace entry, and repository VERSION must describe the same installable release.]
   validation_commands: [cargo make check]
+sources:
+  - id: openwiki-source-8e7150eb410f39fb723ea62d
+    resource: repo://.agents/plugins/marketplace.json
+  - id: openwiki-source-23775c3de52f3ab95a13cb8b
+    resource: repo://README.md
+generated: { by: "codex", at: "2026-10-10T13:08:34.012Z" }
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-10T13:08:34.012Z
 ---
 
 # Repository Quickstart
 
 ## What This Repository Is
 
-`acg-box/exp` publishes small ACG Box engineering standards as Codex plugins. Both
+Agentry (`acg-box/agentry`) publishes small ACG Box engineering standards as Codex plugins. Both
 current plugins are instruction-only:
 
 - [`gh-settings`](gh-settings.md) owns GitHub governance profiles.
@@ -42,7 +51,7 @@ context belongs under `openwiki/`.
 | --- | --- | --- | --- | --- | --- |
 | Change GitHub settings guidance | [GitHub Settings](gh-settings.md) | `plugins/gh-settings/skills/sync/SKILL.md`, `plugins/gh-settings/skills/sync/references/standard.md` | `sync`, central-first authority, exact drift preview, automatic dependency submission, free Dependabot baseline | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/gh-settings/skills/sync` |
 | Change the ACG Box macOS release standard | [ACG Release: macOS](acg-release.md) | `plugins/acg-release/skills/macos/SKILL.md`, `plugins/acg-release/skills/macos/references/standard.md` | `acg-release`, `macos`, canonical owner `acg-box`, Developer ID, notarization, final Sparkle ZIP, draft-first publication | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/acg-release/skills/macos` |
-| Change plugin metadata or installability | [Install And Validation](operations.md) | `plugins/*/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `VERSION` | `gh-settings`, `acg-release`, `acg-box`, `0.1.0` | Plugin Creator `validate_plugin.py` | Run the validator for each changed plugin |
+| Change plugin metadata or installability | [Install And Validation](operations.md) | `plugins/*/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `VERSION` | `gh-settings`, `acg-release`, `acg-box`, `0.1.1` | Plugin Creator `validate_plugin.py` | Run the validator for each changed plugin |
 | Change repository checks or formatting | [Install And Validation](operations.md) | `Makefile.toml`, `.taplo.toml` | `check`, `check-json`, `fmt-check` | `cargo make check` | `cargo make check` |
 | Change CI triggers or release boundaries | [Install And Validation](operations.md) | `.github/workflows/check.yml`, `PRIVACY.md` | `Check`, `contents: read` | GitHub `Check` workflow | `cargo make check` |
 | Update repository navigation | this page and linked concepts | `README.md`, `AGENTS.md`, `openwiki/` | repository ownership statements | Markdown link review | `cargo make check` |

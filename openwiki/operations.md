@@ -11,6 +11,21 @@ openwiki:
   test_paths: [Makefile.toml, .github/workflows/check.yml]
   invariants: [The Check workflow runs the same cargo make check command as local validation.]
   validation_commands: [cargo make check]
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-10T13:08:34.012Z
+sources:
+  - id: openwiki-source-8e7150eb410f39fb723ea62d
+    resource: repo://.agents/plugins/marketplace.json
+  - id: openwiki-source-af1b995411f58f4a90794b96
+    resource: repo://plugins/acg-release/.codex-plugin/plugin.json
+  - id: openwiki-source-76d8051b07974472959e6838
+    resource: repo://plugins/gh-settings/.codex-plugin/plugin.json
+  - id: openwiki-source-23775c3de52f3ab95a13cb8b
+    resource: repo://README.md
+  - id: openwiki-source-94e7bca26bc3525581ff6cdf
+    resource: repo://VERSION
+generated: { by: "codex", at: "2026-10-10T13:08:34.012Z" }
 ---
 
 # Install And Validation
@@ -20,7 +35,7 @@ openwiki:
 Add the Git marketplace and install the optional plugins:
 
 ```sh
-codex plugin marketplace add acg-box/exp --ref main
+codex plugin marketplace add acg-box/agentry --ref main
 codex plugin add gh-settings@acg-box
 codex plugin add acg-release@acg-box
 ```
@@ -83,7 +98,7 @@ Ubuntu job with a five-minute timeout, installs pinned `cargo-make` and Taplo, a
 runs `cargo make check`. Pull-request runs may be canceled when superseded; `main` runs
 are not canceled.
 
-`VERSION` is `0.1.0`. Change it and every plugin manifest together only for an explicit
+`VERSION` is `0.1.1`. Change it and every plugin manifest together only for an explicit
 release. This repository has no publication workflow. Full verification or plugin
 installation does not authorize publishing, deploying, or changing CI policy.
 

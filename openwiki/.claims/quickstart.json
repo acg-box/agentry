@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:1e1faf8c0c74347315521359b7e380e2a15134b9462da32fda906849f79ea6c1",
+  "pageVersion": "sha256:c8fe3a0ba8c9c6d3ae25040ee0af2d44d4251e8aa7acc170d64f33ffd059bf10",
   "claims": [
     {
       "id": "claim_fa6907a5e9da4f7fba94258ef9c13755",
@@ -12,13 +12,13 @@
         },
         {
           "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:afd6809d22dca049c6e512314c093a1de3fdab101a005421a3846993cca95020"
+          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-10T15:38:28.648Z"
+    "at": "2026-10-10T15:43:04.178Z"
   }
 }

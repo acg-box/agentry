@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:6d1359815bc05c393cfd65b4f5510a1cb51470d5775d7fc71cdc8c57542ba7a0",
+  "pageVersion": "sha256:111addc46069eb379d0d64a9154664bb1a9504a5a18c7b5b51225271db4df056",
   "claims": [
     {
       "id": "claim_454347a1c1d947dc881f0d35b896d30e",
@@ -12,7 +12,7 @@
         },
         {
           "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:afd6809d22dca049c6e512314c093a1de3fdab101a005421a3846993cca95020"
+          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
         }
       ]
     },
@@ -37,10 +37,28 @@
           "version": "repo-file-v1:sha256:739af288f4e66383843cdb8887cc83f8c75377dfab081115e7285c4a3c79321e"
         }
       ]
+    },
+    {
+      "id": "claim_93c3149353fe45d8839b703d6c0368f9",
+      "statement": "Automation command-guard tests require ripgrep, and the repository CI installs it before cargo make check.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/check.yml",
+          "version": "repo-file-v1:sha256:95b63e4a5e4e20f09a1dbb05c8068da526d38303f5c8a5d15f645bca7254d6f7"
+        },
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
+        },
+        {
+          "resource": "repo://dev/plugins/automation/scripts/run_behavior_benchmark.py#L1298-L1304",
+          "version": "repo-lines-v1:sha256:5f64c9b8b77be6e05551f5a45e7ffa89269f9decb5c8b7d55a7bf7bed5f1179f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjMyZTQ2M2NiNGFkNzMzMzI0NzI0YTAwMTZkYzI3ODViNjA1MmVmYzI3MWY1ZGQxNmQxMGNkYjEyNjg5Y2FkNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYwYjViYTM5ZGE0ODRjZTA2Y2IxYzVjNzQxZDUyOTljMzZmNWY1MWM4ZjkwZjU0OGYyYmRkMTMxNjkwZTBjMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWI0NTJmN2Y5ODAyMDA0ZGFkNzMxZmMwMjE5ZGI4MWI4MmUxNzU1ZjYxMjJjNTk5OGMyZjBmNDM5NGY4ZWE3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE4N2I3NjIxNDJmNWRmN2M1MGI1OTFkMzY3OWE5OWQ1YjJmNDY3YTc3YzYyZTNjNmI1OTMyZDhhY2U2NGRlYSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-10T15:38:28.648Z"
+    "at": "2026-10-10T15:43:04.178Z"
   }
 }

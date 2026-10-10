@@ -14,6 +14,10 @@ openwiki:
 sources:
   - id: openwiki-source-8e7150eb410f39fb723ea62d
     resource: repo://.agents/plugins/marketplace.json
+  - id: openwiki-source-e05e3253cc972e8bd548b5cf
+    resource: repo://.github/workflows/check.yml
+  - id: openwiki-source-2247773261a97b4a4c69e19f
+    resource: repo://dev/plugins/automation/scripts/run_behavior_benchmark.py
   - id: openwiki-source-af1b995411f58f4a90794b96
     resource: repo://plugins/acg-release/.codex-plugin/plugin.json
   - id: openwiki-source-8c2e488cb190ab33220905a0
@@ -24,10 +28,10 @@ sources:
     resource: repo://README.md
   - id: openwiki-source-94e7bca26bc3525581ff6cdf
     resource: repo://VERSION
-generated: { by: "codex", at: "2026-10-10T15:38:28.648Z" }
+generated: { by: "codex", at: "2026-10-10T15:43:04.178Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-10T15:38:28.648Z
+    at: 2026-10-10T15:43:04.178Z
 ---
 
 # Install And Validation
@@ -49,7 +53,7 @@ fresh task to verify that Codex loaded a newly installed version.
 
 ## Repository Checks
 
-Install `cargo-make` and Taplo, then run the canonical quiet repository check:
+Use Python 3, `cargo-make`, Taplo, and ripgrep for the canonical repository check:
 
 ```sh
 cargo make check
@@ -60,6 +64,7 @@ cargo make check
 standard library. `fmt-check` checks `.taplo.toml` and `Makefile.toml` with Taplo.
 `test-automation` runs the migrated Python unit tests and package-boundary checks.
 Tests use temporary local fixtures and do not access a real scheduler.
+The benchmark command-guard tests require `rg` from ripgrep.
 The check performs no install, deployment, or release work.
 
 Apply TOML formatting only when needed:
@@ -101,7 +106,7 @@ installable boundary. Automation keeps synthetic fixtures and benchmark tools un
 
 The `Check` workflow in `.github/workflows/check.yml` runs on pull requests targeting
 `main`, pushes to `main`, and merge queues. It grants `contents: read`, uses one
-Ubuntu job with a five-minute timeout, installs pinned `cargo-make` and Taplo, and
+Ubuntu job with a five-minute timeout, installs `cargo-make`, Taplo, and ripgrep, and
 runs `cargo make check`. Pull-request runs may be canceled when superseded; `main` runs
 are not canceled.
 

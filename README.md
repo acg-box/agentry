@@ -69,7 +69,7 @@ installed plugin directories.
 
 ## Develop
 
-Install `cargo-make` and Taplo, then run:
+Use Python 3 and install `cargo-make`, Taplo, and ripgrep, then run:
 
 ```sh
 cargo make check

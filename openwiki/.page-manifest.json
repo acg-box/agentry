@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/gh-settings.md": {
+      "gitHead": "6cc1321108f2d6eb6aee5fea114671be612508e6",
+      "sourceFingerprint": "sha256:152d864d581feba9369d1121aac7c2cae1477f7cc26c4cb0d3a20f7ca90b8a00",
+      "pageVersion": "sha256:2c8accd0c37249f841240d4e19f9c1f2a0dbf5dee2e6263ce39079f2851d2d82",
+      "completedBy": "codex",
+      "completedRunId": "75e0ceea-f336-4a7b-9623-d8ec92ba7ce7"
+    },
+    "/openwiki/operations.md": {
+      "pageVersion": "sha256:f71434f89e38c9b5d53f746e255ca086acd4ebd9400ceb7877bf535ec1ba232a",
+      "completedBy": "codex",
+      "completedRunId": "aaabce8b-09ff-44c8-9264-b3553aafe2c3",
+      "gitHead": "6cc1321108f2d6eb6aee5fea114671be612508e6",
+      "sourceFingerprint": "sha256:b108b8c9330de78051b392e1b90717dfc1af3a2f3b0c615cdf068f69df1522a9"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:ce2ede14eb354d6a1df2891164ed15fd8ea5686bf6a972ca8d6bdf2103cf7b44",
+      "completedBy": "codex",
+      "completedRunId": "aaabce8b-09ff-44c8-9264-b3553aafe2c3",
+      "gitHead": "6cc1321108f2d6eb6aee5fea114671be612508e6",
+      "sourceFingerprint": "sha256:b108b8c9330de78051b392e1b90717dfc1af3a2f3b0c615cdf068f69df1522a9"
+    }
+  }
+}

@@ -4,12 +4,12 @@
 
 Audit or reconcile the requested profile against the exact authorized GitHub
 host, accounts, repositories, and mutation scopes. Use the complete in-scope
-repository inventory, including private, internal, archived, and template
+repository inventory, including private, archived, and template
 repositories. Establish identity, permissions, plan, and billing where they
 affect the requested controls.
 
-Organization-wide work uses the highest sufficient authorized scope: Enterprise
-enforcement, organization enforcement, parent defaults, then repository settings.
+Organization-wide work uses supported organization enforcement and defaults, then
+repository settings, within the authorized scope.
 Repository-scoped work keeps parent state read-only while accounting for inherited
 controls. Neither mode grants authority to modify a higher scope.
 
@@ -35,7 +35,7 @@ Preserve active advanced CodeQL setup or select the supported advanced-setup
 allowance when attaching a parent configuration. Do not remove working advanced
 setup merely to make the attachment succeed.
 
-For a free private or internal baseline, enable only features supported without
+For a free private baseline, enable only features supported without
 charge by the current plan, including dependency graph and Dependabot alerts and
 security updates. Disable Code Security, Secret Protection, CodeQL, secret scanning,
 push protection, and paid dependent features unless separately authorized. Keep
@@ -43,19 +43,17 @@ malware alerts within their supported ecosystems and delegated dismissal disable
 when it requires a paid product.
 
 Code Quality is separate from CodeQL and Code Security. For a no-extra-cost
-profile, keep it disabled on public and private repositories. At Enterprise scope,
-verify organization access is unavailable and repository administrators cannot
-enable it. Where organization controls remain available, require `No repositories`
+profile, keep it disabled on public and private repositories. Where organization
+controls are available, require `No repositories`
 with `Enforce access`; the default alone does not disable repository opt-ins.
 Read back effective repository analysis as off. Never enable the product to expose
 a hidden control or complete verification.
 
 ### Prevent Additional Charges
 
-Preserve the authorized base subscription and seat allowance. The acg-box baseline
-allows one GHEC seat and no additional paid products or metered charges unless the
-user changes that profile. Keep confirmed free features. Trials, discounts,
-included quotas, and public visibility do not prove that a feature and its
+Preserve the authorized subscription. Do not enable additional paid products or
+metered charges without user authority. Keep confirmed free features. Trials,
+discounts, included quotas, and public visibility do not prove that a feature and its
 dependent Actions, storage, or AI workloads cannot incur charges.
 
 Within the authorized scope, disable unapproved paid products and use parent
@@ -65,20 +63,17 @@ usage where supported. Report an uncovered cost risk instead of enabling a featu
 with uncertain billing to maximize security coverage.
 
 Budgets supplement product controls. Verify current product/SKU support, units,
-scope, exclusions, and stop-usage enforcement. Alert-only budgets do not cap use;
-GHEC license budgets cannot prevent additional seats. Do not assume Code Quality
-supports a budget or that a GHAS budget disables existing paid enablement. Recheck
+scope, exclusions, and stop-usage enforcement. Alert-only budgets do not cap use.
+Do not assume Code Quality supports a budget or that a GHAS budget disables
+existing paid enablement. Recheck
 provider capabilities instead of treating historical API limitations as permanent.
 
-For account-wide cost audits, inspect consumed licenses and billable usage,
-including outside collaborators and invitations that can add seats. Cost control
-does not authorize removing people or repository access. Report excess seats and
-the proposed access change unless that exact change is already authorized.
+For account-wide cost audits, inspect billable usage. Cost control does not
+authorize removing people or repository access.
 
 Verify effective product state, restrictions on re-enablement, and current-period
-net charges separately. Account for reporting delay, usage before a budget existed,
-and license charges that continue after disablement or user removal. Current
-consumed seats do not establish the period's billable seats. Report remaining
+net charges separately. Account for reporting delay and usage before a budget
+existed or a product was disabled. Report remaining
 charges and gaps; do not promise a monthly total or zero future charges from
 current settings, absent usage records, or partial-period totals alone.
 
@@ -89,7 +84,7 @@ dependency-graph, Actions, ecosystem, runner, and billing prerequisites. It is n
 controlled by the Dependabot runner setting.
 
 For a maximum-free public baseline, enable it with the standard runner after
-confirming current free usage. For private or internal repositories, leave it
+confirming current free usage. For private repositories, leave it
 disabled unless the user accepts Actions usage and possible charges. Prefer free
 Dependabot graph jobs where they take precedence. Report enablement with no current
 effect when the repository has no supported manifest.
@@ -204,9 +199,7 @@ Use current official documentation for the controls involved:
 - [GraphQL](https://docs.github.com/en/graphql/reference).
 
 For cost controls, consult [budgets and alerts](https://docs.github.com/en/billing/concepts/budgets-and-alerts),
-[Code Quality disablement](https://docs.github.com/en/code-security/how-tos/maintain-quality-code/disable-code-quality),
-[Enterprise Code Quality policy](https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise),
-and [enterprise license billing](https://docs.github.com/en/enterprise-cloud@latest/billing/concepts/enterprise-billing/usage-based-licenses).
+and [Code Quality disablement](https://docs.github.com/en/code-security/how-tos/maintain-quality-code/disable-code-quality).
 
 Consult the relevant product documentation for billing, default precedence,
 attachment compatibility, and automatic dependency submission prerequisites.

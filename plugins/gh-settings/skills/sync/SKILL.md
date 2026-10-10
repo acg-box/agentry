@@ -1,6 +1,6 @@
 ---
 name: sync
-description: Use when auditing or reconciling GitHub Enterprise, organization, and repository governance against an authorized settings profile, with central-first organization controls and repository-scoped changes.
+description: Use when auditing or reconciling GitHub organization and repository governance against an authorized settings profile, with central-first organization controls and repository-scoped changes.
 ---
 
 # GitHub Governance
@@ -14,9 +14,9 @@ For free-feature or cost-control requests, also read the standard's
 `Prevent Additional Charges` section. Preventing unapproved charges is an
 acceptance condition, not a conclusion from feature toggles alone.
 
-Organization-wide work puts controls at the highest sufficient authorized scope.
-Repository-scoped work keeps parent state read-only. Preserve the distinction
-between enforced parent policy and repository-overridable defaults.
+Organization-wide work uses supported organization controls within the authorized scope.
+Repository-scoped work keeps organization state read-only. Preserve the distinction
+between enforced organization policy and repository-overridable defaults.
 
 Default to a read-only audit unless the request authorizes reconciliation. Show
 exact drift before live writes; existing authority remains valid for that drift.

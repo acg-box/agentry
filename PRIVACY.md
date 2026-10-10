@@ -9,4 +9,4 @@ When Codex uses a plugin, Codex can read repository or GitHub settings and run t
 only under the user's request, the target repository's instructions, and the active
 Codex environment. ACG Box does not receive that content through these plugins.
 
-Report a privacy concern through the `acg-box/exp` repository issue tracker.
+Report a privacy concern through the `acg-box/agentry` repository issue tracker.

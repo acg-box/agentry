@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f71434f89e38c9b5d53f746e255ca086acd4ebd9400ceb7877bf535ec1ba232a",
+  "claims": [
+    {
+      "id": "claim_454347a1c1d947dc881f0d35b896d30e",
+      "statement": "Agentry's Git marketplace is installed from acg-box/agentry; its plugins retain the acg-box marketplace namespace.",
+      "evidence": [
+        {
+          "resource": "repo://.agents/plugins/marketplace.json",
+          "version": "repo-file-v1:sha256:a65bf8b183782875ca01408d8828862cb63e6f1ea5b903ec17940209f776fa98"
+        },
+        {
+          "resource": "repo://README.md#L32-L40",
+          "version": "repo-lines-v1:sha256:241a26549d6c91e45168ffaf86607f40b8a04c84cba943148236740a8d974921:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWM2ZGU5MDgyYjc4Mjg0MDI4ZWY1MGRmNmY1OTRjOTVhOTE2NzY4N2YwNzgyZmI2OGE5ZjI1MDI1YjIwN2JlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTNlZDdlMmVjOTI5ZDFhYjA1Mjc4Y2UxMzY4ZDNmZDFjZjRhMTcyNTIyZDg3NWRhNGNiZmQ1Y2E4NmFkNGQ3MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTkwZDM2MTgwOWJlYzE5YWNiZGMzMjQ0YTg1M2RlNmZiZTZkYjE4ZTRlYzE3OTBjYTBlOWM0MTg5ZWVhYTFiZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb90f247a36145659e168f8426b668ce",
+      "statement": "The repository VERSION and both plugin manifests use release version 0.1.1.",
+      "evidence": [
+        {
+          "resource": "repo://VERSION",
+          "version": "repo-file-v1:sha256:80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c"
+        },
+        {
+          "resource": "repo://plugins/acg-release/.codex-plugin/plugin.json#L1-L4",
+          "version": "repo-lines-v1:sha256:b29dfd9034e64e0384adef17356fb78f5883cba9b2b601c4a8ae0040e76cbcad:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI5NjIyYjE3ZjlmNGRkZmQxYzU4ZGYwNTVjMThhOWQ3NGM1MzU4ZWFkZjU3NjlhMDk1NDYxNzVkNTJlNmM4OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjBkMjBhMjg3MWMyODVhZDJhMmUzYzdkNjMzNDc3NGQ1NmM0ZDc0NzdmM2Y5N2MxOTljZTIwMzExZWI1OTQ2NSJ9"
+        },
+        {
+          "resource": "repo://plugins/gh-settings/.codex-plugin/plugin.json#L1-L4",
+          "version": "repo-lines-v1:sha256:c5eb24d0dac0f7a70da1f11cd8ee90108f1acfab66c774c58c03c090b9033209:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q5OGEwZjNlOTNiOGFjMzU4ZGQxNGIyZTE5MDMzYjBiZWQ1YTI5YzgzYzMxMDY1NDMxZmVmZDBlZWI4YjMyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjBkMjBhMjg3MWMyODVhZDJhMmUzYzdkNjMzNDc3NGQ1NmM0ZDc0NzdmM2Y5N2MxOTljZTIwMzExZWI1OTQ2NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-10T13:08:34.012Z"
+  }
+}

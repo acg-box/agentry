@@ -1,7 +1,7 @@
 {
   "name": "acg-release",
   "version": "0.1.2",
-  "description": "Apply ACG Box release standards only to repositories whose canonical GitHub owner is acg-box; the current macOS skill manages Developer ID-notarized Sparkle ZIP releases.",
+  "description": "ACG Box standards for notarized macOS Sparkle ZIP and installer PKG releases on GitHub.",
   "author": {
     "name": "ACG Box",
     "url": "https://github.com/acg-box"
@@ -19,13 +19,14 @@
     "notarization",
     "code-signing",
     "semver",
-    "supply-chain"
+    "supply-chain",
+    "pkg"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "ACG Release",
     "shortDescription": "Release standards for acg-box repositories.",
-    "longDescription": "Apply ACG Box release standards only to repositories whose canonical GitHub owner is acg-box. The current macOS skill audits, migrates, normalizes, operates, and verifies Sparkle ZIP releases with Developer ID Application signing, Apple notarization and stapling, draft-first GitHub publication, and remote byte verification.",
+    "longDescription": "Audit and operate acg-box macOS releases on GitHub. Follow the Sparkle ZIP standard or the repository’s signed installer PKG procedure, recover Apple notarization submissions, and verify public downloads.",
     "developerName": "ACG Box",
     "category": "Development",
     "capabilities": [
@@ -39,7 +40,7 @@
     "defaultPrompt": [
       "Audit this acg-box macOS Sparkle ZIP workflow against the Developer ID standard.",
       "Migrate this acg-box macOS ZIP workflow to Developer ID signing and notarization.",
-      "Operate the next acg-box stable Sparkle ZIP release and verify its public bytes."
+      "Release the requested acg-box macOS version using its repository procedure and verify the public downloads."
     ],
     "brandColor": "#0A84FF"
   }

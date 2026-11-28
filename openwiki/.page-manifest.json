@@ -1,6 +1,13 @@
 {
   "schemaVersion": 1,
   "pages": {
+    "/openwiki/acg-release.md": {
+      "gitHead": "6aeae3afb39a68d442072350fde30989cd41ba9c",
+      "sourceFingerprint": "sha256:090cb4b842162ad40a25dfc53bd6a02ac781dafa7fcfd76cb92ef74eec6b494c",
+      "pageVersion": "sha256:589d2812a666b816eb4a666425b4978c65457079edf3873b9d667bddaa771ad9",
+      "completedBy": "codex",
+      "completedRunId": "2f30958a-bcdc-47e7-b246-fa1f4eaeafe7"
+    },
     "/openwiki/automation.md": {
       "gitHead": "2a53ba5c297d444b91e3b0ee7b8ea121a738e47f",
       "sourceFingerprint": "sha256:935f8c9503d134208cc3f5d0daabda9d00859fe8c998b773b3dbebf8f79bdf18",
@@ -16,18 +23,18 @@
       "completedRunId": "75e0ceea-f336-4a7b-9623-d8ec92ba7ce7"
     },
     "/openwiki/operations.md": {
-      "pageVersion": "sha256:111addc46069eb379d0d64a9154664bb1a9504a5a18c7b5b51225271db4df056",
+      "pageVersion": "sha256:8890e6f2b8023708bd3240f73cd3d5b6ebbff27d9d0bec852342d5994d2516fa",
       "completedBy": "codex",
-      "completedRunId": "7a6ccf8b-039c-4089-888e-25e4c6760b7f",
-      "gitHead": "0ed16e0ba1123692b8b894f163223040b9f4e6ad",
-      "sourceFingerprint": "sha256:b8b356a916370bbf4619451f34d2b41d5c95e55f27a211778484d908d9b0bdb8"
+      "completedRunId": "a509fbe6-b019-4c97-b4f0-17d124ccf306",
+      "gitHead": "6aeae3afb39a68d442072350fde30989cd41ba9c",
+      "sourceFingerprint": "sha256:090cb4b842162ad40a25dfc53bd6a02ac781dafa7fcfd76cb92ef74eec6b494c"
     },
     "/openwiki/quickstart.md": {
-      "pageVersion": "sha256:c8fe3a0ba8c9c6d3ae25040ee0af2d44d4251e8aa7acc170d64f33ffd059bf10",
+      "gitHead": "6aeae3afb39a68d442072350fde30989cd41ba9c",
+      "sourceFingerprint": "sha256:090cb4b842162ad40a25dfc53bd6a02ac781dafa7fcfd76cb92ef74eec6b494c",
+      "pageVersion": "sha256:a8b2601037b6877c2e862f3a03b50b77fa5adff871ab44c6d967df6c75ec65b7",
       "completedBy": "codex",
-      "completedRunId": "7a6ccf8b-039c-4089-888e-25e4c6760b7f",
-      "gitHead": "0ed16e0ba1123692b8b894f163223040b9f4e6ad",
-      "sourceFingerprint": "sha256:b8b356a916370bbf4619451f34d2b41d5c95e55f27a211778484d908d9b0bdb8"
+      "completedRunId": "2f30958a-bcdc-47e7-b246-fa1f4eaeafe7"
     }
   }
 }

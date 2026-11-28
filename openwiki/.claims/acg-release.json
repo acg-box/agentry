@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:589d2812a666b816eb4a666425b4978c65457079edf3873b9d667bddaa771ad9",
+  "claims": [
+    {
+      "id": "claim_97c2b6feb49d43ddb45a032657d31cd2",
+      "statement": "The macOS skill routes verified acg-box repositories to the Sparkle ZIP standard or the repository's installer PKG procedure.",
+      "evidence": [
+        {
+          "resource": "repo://plugins/acg-release/skills/macos/SKILL.md",
+          "version": "repo-file-v1:sha256:32aa2509212e73e30024ed119c683f92717df6a6b4a1b4339e01ce3e15c910cd"
+        }
+      ]
+    },
+    {
+      "id": "claim_23ff9beee30c4fbb9b2a9dfc60583c1d",
+      "statement": "Both release formats use the same recovery procedure for agreement errors and interrupted notarization submissions.",
+      "evidence": [
+        {
+          "resource": "repo://plugins/acg-release/skills/macos/references/standard.md#L42-L70",
+          "version": "repo-lines-v1:sha256:2339bf406937084a1b3a9072f5f66d7ac0f2148b88e143463ac1aaff0e49ff22:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2M2Q3Y2UzODRkMmFhNTkwZDk3OTQ2ZmUyYTA5YjRmMjBiMDg2ZWI1ZTNiZTc3YTQ5Nzg1YjQyODEwYzY5MDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIyYjg4NzZhYTMzN2ZkZDEwOWUzOWJmNDgyNzczNjdiMmQ1MDJiZjgxMTc3MjRjYjIxN2E1NThlMjVhMDU5NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NzU1NTdkMGM5NjZlYzUyNTY5MTdlNWMyMjRjM2ZmYWVmZTkzMjRhOWIxODIwNWJkYWYxZmUyMjM2ZWY3ZTYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-28T16:28:40.721Z"
+  }
+}

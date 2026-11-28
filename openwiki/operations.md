@@ -30,8 +30,8 @@ sources:
     resource: repo://VERSION
 generated: { by: "codex", at: "2026-10-10T15:43:04.178Z" }
 verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-10T15:43:04.178Z
+  - by: openwiki/0.9.0
+    at: 2026-11-28T16:29:56.627Z
 ---
 
 # Install And Validation

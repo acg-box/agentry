@@ -14,12 +14,14 @@ openwiki:
 sources:
   - id: openwiki-source-8e7150eb410f39fb723ea62d
     resource: repo://.agents/plugins/marketplace.json
+  - id: openwiki-source-d2e490658308bc4b4744931f
+    resource: repo://plugins/acg-release/skills/macos/SKILL.md
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
-generated: { by: "codex", at: "2026-10-10T15:38:28.648Z" }
+generated: { by: "codex", at: "2026-11-28T16:28:40.721Z" }
 verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-10T15:43:04.178Z
+  - by: openwiki/0.9.0
+    at: 2026-11-28T16:28:40.721Z
 ---
 
 # Repository Quickstart
@@ -51,7 +53,7 @@ read-only Python analyzer. Its tests and synthetic benchmarks belong under
 | --- | --- | --- | --- | --- | --- |
 | Change Automation guidance or analysis | [Automation](automation.md) | `plugins/automation/`, `dev/plugins/automation/` | audit, manage, snapshot schema | Python unit and boundary tests | `cargo make test-automation` |
 | Change GitHub settings guidance | [GitHub Settings](gh-settings.md) | `plugins/gh-settings/skills/sync/SKILL.md`, `plugins/gh-settings/skills/sync/references/standard.md` | `sync`, central-first authority, exact drift preview, automatic dependency submission, free Dependabot baseline | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/gh-settings/skills/sync` |
-| Change the ACG Box macOS release standard | [ACG Release: macOS](acg-release.md) | `plugins/acg-release/skills/macos/SKILL.md`, `plugins/acg-release/skills/macos/references/standard.md` | `acg-release`, `macos`, canonical owner `acg-box`, Developer ID, notarization, final Sparkle ZIP, draft-first publication | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/acg-release/skills/macos` |
+| Change the ACG Box macOS release standard | [ACG Release: macOS](acg-release.md) | `plugins/acg-release/skills/macos/SKILL.md`, `plugins/acg-release/skills/macos/references/standard.md` | `acg-release`, `macos`, canonical owner `acg-box`, Developer ID, notarization recovery, Sparkle ZIP, installer PKG, public download verification | Skill Creator `quick_validate.py` | `python3 .../quick_validate.py plugins/acg-release/skills/macos` |
 | Change plugin metadata or installability | [Install And Validation](operations.md) | `plugins/*/.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`, `VERSION` | `gh-settings`, `acg-release`, `acg-box`, `0.1.2` | Plugin Creator `validate_plugin.py` | Run the validator for each changed plugin |
 | Change repository checks or formatting | [Install And Validation](operations.md) | `Makefile.toml`, `.taplo.toml` | `check`, `check-json`, `fmt-check` | `cargo make check` | `cargo make check` |
 | Change CI triggers or release boundaries | [Install And Validation](operations.md) | `.github/workflows/check.yml`, `PRIVACY.md` | `Check`, `contents: read` | GitHub `Check` workflow | `cargo make check` |

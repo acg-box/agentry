@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:c8fe3a0ba8c9c6d3ae25040ee0af2d44d4251e8aa7acc170d64f33ffd059bf10",
+  "pageVersion": "sha256:a8b2601037b6877c2e862f3a03b50b77fa5adff871ab44c6d967df6c75ec65b7",
   "claims": [
     {
       "id": "claim_fa6907a5e9da4f7fba94258ef9c13755",
@@ -12,13 +12,23 @@
         },
         {
           "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
+          "version": "repo-file-v1:sha256:5160e59e404706c364915b261c5c148af2d8328c35b0731860506598dfd5aa15"
+        }
+      ]
+    },
+    {
+      "id": "claim_6d44696019c444f282c308585250e7f4",
+      "statement": "The macOS release skill covers Sparkle ZIPs, repository-managed installer PKGs and recovery from interrupted Apple notarization.",
+      "evidence": [
+        {
+          "resource": "repo://plugins/acg-release/skills/macos/SKILL.md",
+          "version": "repo-file-v1:sha256:32aa2509212e73e30024ed119c683f92717df6a6b4a1b4339e01ce3e15c910cd"
         }
       ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-10T15:43:04.178Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-28T16:28:40.721Z"
   }
 }

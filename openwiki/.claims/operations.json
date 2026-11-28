@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:111addc46069eb379d0d64a9154664bb1a9504a5a18c7b5b51225271db4df056",
+  "pageVersion": "sha256:8890e6f2b8023708bd3240f73cd3d5b6ebbff27d9d0bec852342d5994d2516fa",
   "claims": [
     {
       "id": "claim_454347a1c1d947dc881f0d35b896d30e",
@@ -12,7 +12,7 @@
         },
         {
           "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
+          "version": "repo-file-v1:sha256:5160e59e404706c364915b261c5c148af2d8328c35b0731860506598dfd5aa15"
         }
       ]
     },
@@ -26,7 +26,7 @@
         },
         {
           "resource": "repo://plugins/acg-release/.codex-plugin/plugin.json",
-          "version": "repo-file-v1:sha256:fd105ad2dc5b016a85962f04c1fdab3af4846b99fd6162cb1a8c654b927300a9"
+          "version": "repo-file-v1:sha256:18b6880fffb4181eef334e53a5bfefd8b3ec8975f76cf95cae44b77201ad513a"
         },
         {
           "resource": "repo://plugins/automation/.codex-plugin/plugin.json",
@@ -48,7 +48,7 @@
         },
         {
           "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:9c151bb0a34c271e2bba2586991c93351e4111e8c49668409a73057f546ac12c"
+          "version": "repo-file-v1:sha256:5160e59e404706c364915b261c5c148af2d8328c35b0731860506598dfd5aa15"
         },
         {
           "resource": "repo://dev/plugins/automation/scripts/run_behavior_benchmark.py#L1298-L1304",
@@ -58,7 +58,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-10T15:43:04.178Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-28T16:29:56.627Z"
   }
 }

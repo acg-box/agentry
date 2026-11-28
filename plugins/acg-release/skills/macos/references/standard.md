@@ -1,19 +1,82 @@
-# ACG Box macOS Sparkle ZIP Release Standard
+# ACG Box macOS Release Standard
 
 ## Scope And Authority
 
-This standard applies only after the skill's canonical-owner and distribution
-checks pass. It defines the shared ACG Box release contract. Each target
-repository owns its executable adapter and product identity.
+Apply this standard after the skill's owner and distribution checks pass. Use
+the section for the repository's release format. Both formats use the same
+notarization recovery procedure.
 
 Repository-write authority covers migration and normalization. Publishing one
 named version requires release authority for its exact repository, version,
-commit, tag push, and workflow. Environment approval, installation, certificate
+commit, tag push, and publication procedure. Environment approval, installation, certificate
 or Sparkle-key lifecycle changes, secret changes, tag movement, release deletion,
 and exceptional manual recovery require their own authority when not already
 covered by the request. Preserve granted authority across follow-ups.
 
-## Production Contract
+## Installer PKG Releases
+
+Locate the repository's public release commands and expected assets. Follow its
+local or CI publication procedure. If the repository only builds local test
+packages, report the missing public release procedure before signing.
+
+Bind the build to the approved annotated tag, commit and product version. Run
+the repository's checks before loading signing credentials. Use its configured
+secret provider to supply only the signing process. Verify the expected Team ID,
+Developer ID Application signatures on executable payloads and Developer ID
+Installer signature on each distribution package.
+
+Submit each signed distribution PKG to Apple and retain its submission ID and
+upload SHA-256. After acceptance, staple the ticket to that PKG, validate it
+with `xcrun stapler validate`, check its signature with `pkgutil --check-signature`,
+and run `spctl --assess --type install`. Compute public hashes after stapling.
+Include each asset declared by the repository, including an uninstall package
+when supplied. Publish with the repository's publisher and verify the downloaded
+assets against the approved release.
+
+For an authorized installation, install the verified public download and check
+the installed version and the repository's runtime acceptance criteria. Preserve
+the user's settings. Keep submission receipts and signed inputs until recovery
+and verification are complete.
+
+## Notarization Recovery
+
+For an agreement-specific HTTP 403
+(`FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`), use the release's existing
+team credentials for a read-only check. Use `xcrun notarytool history` before a
+submission, or `xcrun notarytool info <submission-id>` for an existing one.
+Keep credential values out of commands printed to logs and reports.
+
+Match the signing Team ID to the membership on the Apple Developer account page.
+Check the current Program License Agreement and any notice to the Account Holder.
+App Store Connect's Business page shows agreement status. The Paid Apps Agreement
+covers paid App Store sales and in-app purchases. A free Developer ID download
+on GitHub does not require that agreement. An Xcode login alone does not establish
+the team's agreement status. If the team has an outstanding applicable agreement,
+identify it and direct the Account Holder to the specific notice.
+[Apple account access](https://developer.apple.com/help/account/access/resolving-access-issues/) ·
+[App Store Connect agreements](https://developer.apple.com/help/app-store-connect/manage-agreements/sign-and-update-agreements/)
+
+If the applicable agreement is active, allow time for the services to reflect
+it and retry the read-only request with a bounded wait. A successful history
+request does not prove acceptance of an individual submission. For a persistent
+403, report the affected team, Apple error code and stage to the operator. Keep
+the existing credentials and release state for recovery.
+
+After an interrupted upload or wait, reconcile each artifact with Apple before
+another submission. Resume the saved submission ID only when the retained source
+and upload digest match. If the upload outcome is unknown and the submission
+cannot be identified reliably, preserve the signed bytes and report the ambiguity.
+Continue a pending wait by ID. For an accepted submission, verify its log and
+upload digest, then finish ticket and public asset checks. Inspect the rejection
+log for an invalid submission. Reuse already verified assets when another package
+in the same release needs recovery.
+
+## Sparkle ZIP Releases
+
+The following sections apply to one regular Sparkle-enabled macOS app published
+as a GitHub Release ZIP.
+
+### Production Contract
 
 Supported releases use Developer ID Application signing, Hardened Runtime,
 secure timestamps, Apple notarization, stapling, strict signature verification,
@@ -27,7 +90,7 @@ public ZIP contains the stapled app; its exact bytes determine the Sparkle
 signature, appcast length, and checksum. Publication uses a private draft and a
 protected publisher. Acceptance requires verification of downloaded public assets.
 
-## Target Repository Adapter
+### Target Repository Adapter
 
 Keep product-specific values in the target repository: app and bundle identity,
 platform minimum and architecture, version owners and build-number policy, asset
@@ -43,7 +106,7 @@ GitHub Actions must use checked-in repository workflows and programs. It must
 never depend on an installed Codex plugin. Preserve established implementation
 owners; choose implementation and tests to satisfy this contract.
 
-## Immutable Source
+### Immutable Source
 
 Use one source validator and accept only annotated `vX.Y.Z` stable tags: decimal
 components without leading zeroes, prerelease, or build suffixes. The tag must
@@ -60,7 +123,7 @@ stable tag and public stable Release. Recheck that condition before publication.
 The workflow does not create its own tag. Never move or reuse a remote tag for
 different source; fix source defects on `main` and release a new version.
 
-## Workflow And Publisher Isolation
+### Workflow And Publisher Isolation
 
 Use one tag-triggered workflow with Linux source validation, macOS native tests
 and packaging, then a Linux publisher dependent on both preceding jobs.
@@ -80,7 +143,7 @@ lane. A local publisher `--dry-run` validates assets without GitHub requests.
 Routine PR and `main` CI can be Linux-only or include macOS under repository
 policy; formal release validation always includes native macOS tests and build.
 
-## Secret And Key Topology
+### Secret And Key Topology
 
 Use these organization-secret names for shared signing and notary material:
 
@@ -111,7 +174,7 @@ Keep private material out of source, logs, caches, and artifacts. Use Sparkle's
 standard-input key interface when available. GitHub publication uses only the
 ephemeral workflow token, with no persistent GitHub release secret.
 
-## Build And Signing
+### Build And Signing
 
 Complete credential-free tests and the unsigned build before exposing Apple or
 Sparkle secrets to the packaging step. Use isolated temporary staging.
@@ -138,7 +201,7 @@ repository exception supported by current Apple requirements. Verify the complet
 signed graph; the final bundle check is equivalent to
 `codesign --verify --deep --strict --verbose=2`.
 
-## Notarization And Final Assets
+### Notarization And Final Assets
 
 Preserve this artifact order:
 
@@ -163,7 +226,7 @@ release/download URLs, version, platform minimum, final ZIP byte length, and
 Ed25519 signature verified with the checked-in public key. GitHub-generated source
 links do not count as uploaded assets.
 
-## Draft Publication And Recovery
+### Draft Publication And Recovery
 
 Validate local assets before GitHub mutation. Create or reuse one private draft
 for the candidate tag; replace its assets with exactly the final asset triplet.
@@ -181,12 +244,11 @@ An already public same-tag rerun is read-only: verify its remote metadata and
 assets. Do not apply the new-version gate, replace public assets, or compare them
 against a fresh rebuild whose archive metadata can differ.
 
-Use the target runbook for recovery. Reuse an Apple submission only when its ID
-and exact upload-artifact binding establish that it is the same candidate.
+Use the target runbook and the [notarization recovery procedure](#notarization-recovery).
 Do not bypass notarization or environment approval, manually publish a failed
 draft, or delete a public release as routine recovery.
 
-## Trust-Root Changes
+### Trust-Root Changes
 
 Keep protected recovery ownership for the Developer ID certificate and each
 application's Sparkle private key. Routine releases do not create or rotate them.
@@ -195,10 +257,10 @@ Never change the Developer ID certificate and Sparkle key in the same update.
 For an authorized rotation, follow current Sparkle guidance and test the update
 from supported installed versions before retiring old trust material. Keep the
 other trust root stable. If `SUVerifyUpdateBeforeExtraction` requires a signed
-DMG for key migration, that migration is outside this ZIP-only skill. Legacy
+DMG for key migration, that migration is outside the Sparkle ZIP procedure. Legacy
 DSA-to-Ed25519 transitions use the provider's staged migration path.
 
-## Acceptance
+### Acceptance
 
 Validate changed repository behavior against the relevant release contracts.
 Select tests for the actual change.
@@ -210,7 +272,7 @@ complete signature graph, and Gatekeeper acceptance. Run repository-required app
 or update checks when authorized. Local tests alone do not establish live release
 success; report any missing live evidence.
 
-## Provider References
+### Provider References
 
 Consult current provider guidance for implementation details:
 

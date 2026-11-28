@@ -1,28 +1,28 @@
 ---
 name: macos
-description: Use when auditing, adapting, or operating Developer ID-notarized Sparkle macOS ZIP releases for repositories whose canonical GitHub owner is acg-box. Excludes other owners, DMG, PKG, and non-Sparkle distribution.
+description: Audit or operate Developer ID releases on GitHub for acg-box macOS projects. Covers Sparkle app ZIPs, signed installer PKGs with a repository release procedure, and recovery from interrupted Apple notarization.
 ---
 
 # ACG Box macOS Releases
 
-Resolve the canonical GitHub owner from the authoritative remote and provider
-metadata before release work. Continue only for `acg-box` repositories that
-publish one regular Sparkle-enabled macOS app in a GitHub Release ZIP. Otherwise
-stop as not applicable, without adoption guidance or use of ACG Box signing and
-secret topology. Unresolved ownership is an applicability gap.
+Verify the canonical GitHub owner from the remote and provider metadata. Use
+this skill for `acg-box` repositories. Within that scope, select the release
+procedure from the product and assets declared in the target repository.
 
-Use the [release standard](references/standard.md) as the canonical team policy.
-Read it in full for a complete release audit, migration, or operation. For a
-focused question or repair, read the relevant sections and their dependencies.
-Use current provider documentation for tool and API behavior.
+- For one regular Sparkle-enabled app distributed in a ZIP, use the
+  [Sparkle ZIP standard](references/standard.md#sparkle-zip-releases).
+- For a Developer ID installer PKG distributed on GitHub, follow the
+  [PKG procedure](references/standard.md#installer-pkg-releases) and the target
+  repository's release commands. A repository can publish from a local Mac.
+- For other formats or an unresolved owner, report the applicability gap before
+  accessing signing material.
 
-Repository changes, release publication, environment approval, installation, and
-certificate, key, or secret changes have separate authorization boundaries. Use
-existing authority for the requested work; default to a read-only audit when
-mutation authority is unclear. A request to publish one named version can cover
-its exact tag push and workflow follow-through, but does not authorize trust-root
-rotation or changes to environment rules.
+For either format, use the [notarization recovery procedure](references/standard.md#notarization-recovery)
+when Apple reports an agreement error or the result of a submission is uncertain.
 
-The standard owns release requirements. The target repository owns product
-identity, executable implementation, and tests. Complete the requested scope and
-report the result, relevant evidence, and remaining gaps.
+Apply the [authorization rules](references/standard.md#scope-and-authority).
+An authorized release of a named version can cover its tag and publication.
+Check existing authority separately for installation, account agreements,
+environment approvals and changes to keys or secrets. Use a read-only audit when
+mutation authority is unclear. The target repository owns the executable
+implementation, product identity and tests.

@@ -23,10 +23,11 @@ or invoke `$gh-settings:sync` after installation.
 
 ### ACG Release
 
-`acg-release` guides Developer ID-notarized Sparkle macOS ZIP releases for
-repositories whose canonical GitHub owner is `acg-box`.
+`acg-release` guides notarized macOS releases for `acg-box` repositories.
+It covers Sparkle ZIPs, repository-managed installer PKGs, and recovery of
+interrupted Apple notarization submissions.
 
-Read the [canonical ACG Box macOS release standard](plugins/acg-release/skills/macos/references/standard.md)
+Read the [macOS release standard](plugins/acg-release/skills/macos/references/standard.md)
 or invoke `$acg-release:macos` after installation.
 
 ### Automation
